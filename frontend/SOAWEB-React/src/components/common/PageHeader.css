@@ -1,0 +1,79 @@
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--on-surface-variant);
+  margin-bottom: 1rem;
+}
+
+.page-breadcrumb-sep {
+  margin: 0 0.25rem;
+  color: var(--outline);
+}
+
+.page-breadcrumb-active {
+  color: var(--on-surface);
+  font-weight: 500;
+}
+
+.page-header-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.page-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.page-header-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+}
+
+.page-header-icon .material-symbols-outlined {
+  font-size: 2rem;
+}
+
+.page-header-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--on-surface);
+  font-family: var(--font-headline);
+  margin: 0;
+}
+
+.page-header-subtitle {
+  font-size: 1rem;
+  color: var(--on-surface-variant);
+  margin: 0.25rem 0 0;
+}
+
+.page-header-action {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .page-header-main {
+    flex-direction: column;
+  }
+
+  .page-header-title {
+    font-size: 1.5rem;
+  }
+}

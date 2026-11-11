@@ -1,0 +1,80 @@
+.auth-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface);
+}
+
+.auth-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  z-index: 50;
+  background-color: transparent;
+}
+
+.auth-header-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.auth-header-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 0.5rem;
+  background-color: var(--primary);
+  color: var(--on-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(77, 65, 223, 0.25);
+}
+
+.auth-header-name {
+  font-family: var(--font-headline);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--on-surface);
+}
+
+.auth-header-lang {
+  display: flex;
+  align-items: center;
+  background-color: var(--surface-container-low);
+  border-radius: 0.5rem;
+  padding: 4px;
+  box-shadow: var(--shadow-sm);
+}
+
+.auth-lang-btn {
+  padding: 2px 10px;
+  border: none;
+  background: none;
+  border-radius: 4px;
+  font-family: var(--font-headline);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--on-surface-variant);
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.auth-lang-btn--active {
+  background-color: var(--surface-container-lowest);
+  color: var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.auth-main {
+  flex: 1;
+  margin-top: var(--header-height);
+}
