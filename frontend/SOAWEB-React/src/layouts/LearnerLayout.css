@@ -1,0 +1,25 @@
+.learner-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--surface);
+}
+
+.learner-content {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 1024px) {
+  .learner-content {
+    margin-left: 0;
+  }
+}
+
+.learner-main {
+  margin-top: var(--header-height);
+  flex: 1;
+  min-height: calc(100vh - var(--header-height));
+}
