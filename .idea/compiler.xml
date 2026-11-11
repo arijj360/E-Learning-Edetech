@@ -2,17 +2,32 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+<<<<<<< HEAD
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="backend" />
+=======
+      <profile name="Annotation profile for certification-service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.48/lombok-1.18.48.jar" />
+        </processorPath>
+        <module name="certification-service" />
+>>>>>>> origin/microservice-certification
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+<<<<<<< HEAD
       <module name="backend" options="-parameters" />
+=======
+      <module name="certification-service" options="-parameters" />
+>>>>>>> origin/microservice-certification
     </option>
   </component>
 </project>
