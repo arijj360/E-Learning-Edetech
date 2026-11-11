@@ -1,0 +1,134 @@
+@startuml User Progress Service - Database ER Diagram
+
+' Styling
+skinparam linetype ortho
+skinparam roundcorner 10
+skinparam class {
+    BackgroundColor<<Entity>> LightBlue
+    BorderColor<<Entity>> DarkBlue
+    BackgroundColor<<Enum>> LightYellow
+    BorderColor<<Enum>> DarkGoldenRod
+}
+
+' Entities
+entity "User" as user <<Entity>> {
+    * id : BIGINT <<PK>>
+    --
+    * email : VARCHAR(255) <<UNIQUE>>
+    * password : VARCHAR(255)
+    * first_name : VARCHAR(100)
+    * last_name : VARCHAR(100)
+    * role : VARCHAR(20) <<Enum>>
+    target_cefr_level : VARCHAR(10) <<Enum>>
+    establishment_id : BIGINT <<FK>>
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+}
+
+entity "Establishment" as establishment <<Entity>> {
+    * id : BIGINT <<PK>>
+    --
+    * name : VARCHAR(200) <<UNIQUE>>
+    address : VARCHAR(500)
+    contact_email : VARCHAR(255)
+    * created_at : TIMESTAMP
+}
+
+entity "Group" as group <<Entity>> {
+    * id : BIGINT <<PK>>
+    --
+    * name : VARCHAR(200)
+    * establishment_id : BIGINT <<FK>>
+    * created_at : TIMESTAMP
+}
+
+entity "Progress" as progress <<Entity>> {
+    * id : BIGINT <<PK>>
+    --
+    * user_id : BIGINT <<FK>>
+    group_id : BIGINT <<FK>>
+    * current_cefr_level : VARCHAR(10) <<Enum>>
+    * exercises_completed : INT
+    * total_score : DOUBLE
+    last_activity : TIMESTAMP
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+}
+
+entity "Alert" as alert <<Entity>> {
+    * id : BIGINT <<PK>>
+    --
+    * user_id : BIGINT <<FK>>
+    * type : VARCHAR(50) <<Enum>>
+    * message : TEXT
+    * is_read : BOOLEAN
+    * created_at : TIMESTAMP
+}
+
+entity "User_Groups" as user_groups <<Join Table>> {
+    * user_id : BIGINT <<FK>>
+    * group_id : BIGINT <<FK>>
+}
+
+' Enums
+class "<<enum>>\nRole" as role_enum <<Enum>> {
+    STUDENT
+    TEACHER
+    ADMIN
+}
+
+class "<<enum>>\nCefrLevel" as cefr_enum <<Enum>> {
+    A1
+    A2
+    B1
+    B2
+    C1
+    C2
+}
+
+class "<<enum>>\nAlertType" as alert_enum <<Enum>> {
+    ACHIEVEMENT
+    REMINDER
+    WARNING
+    INFO
+}
+
+' Relationships
+establishment ||--o{ user : "has many"
+establishment ||--o{ group : "has many"
+
+user ||--o{ progress : "has many"
+user ||--o{ alert : "receives many"
+
+user }o--o{ group : "member of"
+(user, group) .. user_groups
+
+group ||--o{ progress : "tracks"
+
+user -- role_enum : "role"
+user -- cefr_enum : "target level"
+progress -- cefr_enum : "current level"
+alert -- alert_enum : "type"
+
+' Notes
+note right of user
+    - Email must be unique
+    - Password should be hashed
+    - Role determines permissions
+    - Created/updated timestamps auto-managed
+end note
+
+note right of progress
+    - Tracks user performance over time
+    - Optional group association
+    - CEFR level indicates proficiency
+    - Scores and exercises cumulative
+end note
+
+note bottom of user_groups
+    Many-to-Many relationship
+    Users can belong to multiple groups
+    Groups can have multiple members
+end note
+
+@enduml

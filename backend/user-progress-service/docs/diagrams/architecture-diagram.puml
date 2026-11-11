@@ -1,0 +1,248 @@
+@startuml SOAWEB-React Platform - System Architecture
+
+!define RECTANGLE class
+
+' Styling
+skinparam component {
+    BackgroundColor LightBlue
+    BorderColor DarkBlue
+}
+
+skinparam database {
+    BackgroundColor LightYellow
+    BorderColor DarkGoldenRod
+}
+
+skinparam cloud {
+    BackgroundColor LightGreen
+    BorderColor DarkGreen
+}
+
+' Title
+title SOAWEB-React Platform - Microservices Architecture
+
+' Client Layer
+package "Client Layer" {
+    [Web Browser] as browser
+    [Mobile App] as mobile #LightGray
+}
+
+' Frontend Layer
+package "Frontend Layer" {
+    component "React Application" as react {
+        [User Management UI]
+        [Progress Dashboard]
+        [Exercise Interface]
+        [Admin Panel]
+    }
+}
+
+' API Gateway Layer (Future)
+package "API Gateway (Future)" {
+    [Spring Cloud Gateway] as gateway #LightGray
+    [Load Balancer] as lb #LightGray
+    [Rate Limiter] as ratelimit #LightGray
+}
+
+' Microservices Layer
+package "Microservices Layer" {
+    
+    ' Current Service
+    component "User Progress Service" as userProgress {
+        portin "REST API" as upApi
+        portout "DB Access" as upDb
+        [User Management]
+        [Group Management]
+        [Progress Tracking]
+        [Alert System]
+    }
+    
+    ' Future Services
+    component "Exercise Service" as exerciseService #LightGray {
+        portin "REST API" as exApi
+        [Exercise Catalog]
+        [Content Management]
+        [Difficulty Scoring]
+    }
+    
+    component "Scoring Service" as scoringService #LightGray {
+        portin "gRPC API" as scApi
+        [AI Pronunciation Scoring]
+        [Speech Recognition]
+        [Fluency Analysis]
+    }
+    
+    component "Notification Service" as notificationService #LightGray {
+        portin "Message Queue" as ntApi
+        [Email Notifications]
+        [Push Notifications]
+        [SMS Alerts]
+    }
+    
+    component "Auth Service" as authService #LightGray {
+        portin "OAuth2" as authApi
+        [JWT Token Management]
+        [User Authentication]
+        [Role Authorization]
+    }
+    
+    component "Analytics Service" as analyticsService #LightGray {
+        portin "REST API" as anApi
+        [Learning Analytics]
+        [Performance Reports]
+        [Data Visualization]
+    }
+}
+
+' Data Layer
+package "Data Layer" {
+    database "H2 Database\n(In-Memory)" as h2 {
+        [users]
+        [groups]
+        [progress]
+        [alerts]
+        [establishments]
+    }
+    
+    database "PostgreSQL\n(Future)" as postgres #LightGray {
+        [exercises]
+        [user_data]
+    }
+    
+    database "MongoDB\n(Future)" as mongo #LightGray {
+        [exercise_content]
+        [media_files]
+    }
+    
+    database "Redis\n(Future)" as redis #LightGray {
+        [session_cache]
+        [rate_limits]
+    }
+}
+
+' Message Queue (Future)
+queue "Message Queue" as mq #LightGray {
+    [RabbitMQ / Kafka]
+}
+
+' External Services
+cloud "External Services" {
+    [AWS S3] as s3 #LightGray
+    [SendGrid Email] as sendgrid #LightGray
+    [Google Cloud Speech] as gcs #LightGray
+}
+
+' Service Registry (Future)
+[Eureka Server] as eureka #LightGray
+
+' Connections - Client to Frontend
+browser --> react : HTTPS
+mobile ..> react : HTTPS (future)
+
+' Frontend to API Gateway
+react --> gateway : REST/JSON
+gateway ..> lb
+gateway ..> ratelimit
+
+' API Gateway to Microservices
+gateway --> upApi : Route /users/**
+gateway ..> exApi : Route /exercises/**
+gateway ..> scApi : Route /scoring/**
+gateway ..> authApi : Route /auth/**
+gateway ..> anApi : Route /analytics/**
+
+' Direct connection (current - no gateway yet)
+react --> upApi : "Current: Direct\nHTTP/REST\nlocalhost:8081" #Red
+
+' Microservices to Databases
+userProgress --> upDb
+upDb --> h2
+
+exerciseService ..> postgres
+scoringService ..> postgres
+analyticsService ..> postgres
+analyticsService ..> mongo
+
+' Service to Service Communication
+exerciseService ..> upApi : Fetch user data
+scoringService ..> exApi : Get exercise details
+analyticsService ..> upApi : Get progress data
+analyticsService ..> exApi : Get exercise stats
+
+' Message Queue Connections
+userProgress ..> mq : Publish progress events
+exerciseService ..> mq : Publish completion events
+notificationService ..> ntApi
+mq ..> ntApi : Subscribe to events
+
+' External Service Connections
+exerciseService ..> s3 : Store audio files
+notificationService ..> sendgrid : Send emails
+scoringService ..> gcs : Speech-to-text
+
+' Service Registry
+userProgress ..> eureka : Register
+exerciseService ..> eureka : Register
+scoringService ..> eureka : Register
+notificationService ..> eureka : Register
+authService ..> eureka : Register
+analyticsService ..> eureka : Register
+gateway ..> eureka : Service discovery
+
+' Redis connections
+authService ..> redis : Cache tokens
+gateway ..> redis : Rate limit data
+
+' CORS Configuration
+note right of react
+    **Frontend Configuration**
+    URL: http://localhost:5173
+    Framework: React + Vite
+    State: Redux/Context API
+end note
+
+note left of userProgress
+    **Current Implementation**
+    Port: 8081
+    Database: H2 (in-memory)
+    API: REST/JSON
+    Auth: None (TODO)
+    Status: ✅ Active
+end note
+
+note right of gateway
+    **Future Implementation**
+    - Centralized routing
+    - Load balancing
+    - Rate limiting
+    - API versioning
+    - Request/response logging
+end note
+
+note bottom of h2
+    **Development Database**
+    JDBC: jdbc:h2:mem:userprogressdb
+    Console: /h2-console
+    ⚠️ Data not persistent
+end note
+
+note bottom of mq
+    **Event-Driven Architecture**
+    Events:
+    - progress.updated
+    - exercise.completed
+    - achievement.unlocked
+    - user.registered
+end note
+
+' Deployment Information
+note top of eureka
+    **Service Discovery**
+    Enables:
+    - Dynamic service registration
+    - Load balancing
+    - Health monitoring
+    - Failover handling
+end note
+
+@enduml

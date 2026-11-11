@@ -1,0 +1,160 @@
+@startuml Progress Tracking Workflow - Sequence Diagram
+
+' Styling
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+
+' Actors and Systems
+actor "Student" as student
+participant "React\nFrontend" as frontend
+participant "Progress\nController" as controller
+participant "Progress\nService" as service
+participant "User\nRepository" as userRepo
+participant "Group\nRepository" as groupRepo
+participant "Progress\nRepository" as progRepo
+participant "Alert\nService" as alertSvc
+database "H2\nDatabase" as db
+
+' Scenario: Student completes exercise and updates progress
+
+== Exercise Completion ==
+
+student -> frontend : Completes oral exercise
+activate frontend
+
+frontend -> frontend : Calculate score locally
+note right
+    Score: 85/100
+    Exercise ID: 42
+    Duration: 5 minutes
+end note
+
+== Update Progress ==
+
+frontend -> controller : POST /api/progress\n{\n  userId: 1,\n  groupId: 10,\n  currentCefrLevel: "B1",\n  exercisesCompleted: 1,\n  totalScore: 85.0\n}
+activate controller
+
+controller -> service : createOrUpdateProgress(request)
+activate service
+
+' Validate User
+service -> userRepo : findById(1)
+activate userRepo
+userRepo -> db : SELECT * FROM users WHERE id = 1
+activate db
+db --> userRepo : User entity
+deactivate db
+userRepo --> service : User found
+deactivate userRepo
+
+alt User not found
+    service --> controller : throw EntityNotFoundException
+    controller --> frontend : 404 Not Found
+    frontend --> student : Show error message
+else User exists
+
+    ' Validate Group (optional)
+    service -> groupRepo : findById(10)
+    activate groupRepo
+    groupRepo -> db : SELECT * FROM groups WHERE id = 10
+    activate db
+    db --> groupRepo : Group entity
+    deactivate db
+    groupRepo --> service : Group found
+    deactivate groupRepo
+    
+    ' Find existing progress or create new
+    service -> progRepo : findByUserIdAndGroupId(1, 10)
+    activate progRepo
+    progRepo -> db : SELECT * FROM progress\nWHERE user_id = 1 AND group_id = 10
+    activate db
+    db --> progRepo : Progress entity or null
+    deactivate db
+    progRepo --> service : existing progress
+    deactivate progRepo
+    
+    alt Existing progress found
+        service -> service : Update existing:\n- exercises += 1\n- totalScore += 85.0\n- currentCefrLevel = "B1"\n- lastActivity = now()
+    else No existing progress
+        service -> service : Create new Progress:\n- userId = 1\n- groupId = 10\n- exercisesCompleted = 1\n- totalScore = 85.0\n- currentCefrLevel = "B1"
+    end
+    
+    ' Save progress
+    service -> progRepo : save(progress)
+    activate progRepo
+    progRepo -> db : INSERT/UPDATE progress
+    activate db
+    db --> progRepo : Saved progress entity
+    deactivate db
+    progRepo --> service : Progress saved
+    deactivate progRepo
+    
+    ' Check for achievements/milestones
+    service -> service : Check milestones
+    note right
+        Check if:
+        - Completed 10th exercise
+        - Reached new CEFR level
+        - Achieved high score
+    end note
+    
+    alt Milestone reached (e.g., 10 exercises completed)
+        service -> alertSvc : createAlert(userId, type, message)
+        activate alertSvc
+        alertSvc -> db : INSERT INTO alerts
+        db --> alertSvc : Alert created
+        alertSvc --> service : Alert sent
+        deactivate alertSvc
+        
+        note right of alertSvc
+            Alert: "Congratulations!
+            You've completed 10 exercises!"
+            Type: ACHIEVEMENT
+        end note
+    end
+    
+    ' Return response
+    service --> controller : ProgressResponse
+    deactivate service
+    
+    controller --> frontend : 200 OK\n{\n  id: 123,\n  userId: 1,\n  groupId: 10,\n  currentCefrLevel: "B1",\n  exercisesCompleted: 10,\n  totalScore: 850.0,\n  lastActivity: "2024-11-11T14:30:00"\n}
+    deactivate controller
+end
+
+== UI Update ==
+
+frontend -> frontend : Update progress dashboard
+frontend --> student : Show updated progress\n- 10 exercises completed\n- New achievement unlocked!
+deactivate frontend
+
+== Fetch Updated Progress (Alternative Flow) ==
+
+student -> frontend : Navigates to Progress page
+activate frontend
+
+frontend -> controller : GET /api/progress/user/1
+activate controller
+
+controller -> service : getProgressByUserId(1)
+activate service
+
+service -> progRepo : findByUserId(1)
+activate progRepo
+progRepo -> db : SELECT * FROM progress WHERE user_id = 1
+activate db
+db --> progRepo : List of Progress entities
+deactivate db
+progRepo --> service : Progress list
+deactivate progRepo
+
+service --> controller : List<ProgressResponse>
+deactivate service
+
+controller --> frontend : 200 OK\n[{progress1}, {progress2}, ...]
+deactivate controller
+
+frontend -> frontend : Render progress charts\n- CEFR level graph\n- Exercise completion\n- Score trends
+frontend --> student : Display progress dashboard
+deactivate frontend
+
+@enduml

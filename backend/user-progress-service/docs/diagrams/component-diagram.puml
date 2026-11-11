@@ -1,0 +1,182 @@
+@startuml User Progress Service - Component Architecture
+
+!define RECTANGLE class
+
+' Styling
+skinparam component {
+    BackgroundColor LightBlue
+    BorderColor DarkBlue
+    ArrowColor DarkSlateGray
+}
+
+skinparam package {
+    BackgroundColor AliceBlue
+    BorderColor Navy
+}
+
+skinparam database {
+    BackgroundColor LightYellow
+    BorderColor DarkGoldenRod
+}
+
+' External Systems
+actor "Student" as student
+actor "Teacher" as teacher
+actor "Admin" as admin
+
+rectangle "React Frontend\n(localhost:5173)" as frontend #LightGreen
+
+' Main Service Boundary
+package "User Progress Service\n(Port 8081)" {
+    
+    ' API Layer
+    package "REST Controllers" {
+        [UserController] as userCtrl
+        [EstablishmentController] as estCtrl
+        [GroupController] as groupCtrl
+        [ProgressController] as progCtrl
+        [AlertController] as alertCtrl
+    }
+    
+    ' Service Layer
+    package "Business Logic" {
+        [UserService] as userSvc
+        [EstablishmentService] as estSvc
+        [GroupService] as groupSvc
+        [ProgressService] as progSvc
+        [AlertService] as alertSvc
+    }
+    
+    ' Data Access Layer
+    package "Data Access" {
+        [UserRepository] as userRepo
+        [EstablishmentRepository] as estRepo
+        [GroupRepository] as groupRepo
+        [ProgressRepository] as progRepo
+        [AlertRepository] as alertRepo
+    }
+    
+    ' Domain Layer
+    package "Domain Entities" {
+        [User] as userEntity
+        [Establishment] as estEntity
+        [Group] as groupEntity
+        [Progress] as progEntity
+        [Alert] as alertEntity
+    }
+    
+    ' Configuration
+    package "Configuration" {
+        [CorsConfig] as cors
+        [OpenAPIConfig] as openapi
+        [GlobalExceptionHandler] as exception
+    }
+    
+    ' API Documentation
+    [Swagger UI] as swagger
+}
+
+' Database
+database "H2 Database\n(In-Memory)" as h2db {
+    [users]
+    [establishments]
+    [groups]
+    [progress]
+    [alerts]
+    [user_groups]
+}
+
+' External Services (Future)
+cloud "Future Integrations" {
+    [Exercise Service] as exerciseSvc #LightGray
+    [Scoring Service] as scoringSvc #LightGray
+    [Notification Service] as notifSvc #LightGray
+}
+
+' Relationships - External to Controllers
+student --> frontend
+teacher --> frontend
+admin --> frontend
+
+frontend --> userCtrl : HTTP/REST
+frontend --> estCtrl : HTTP/REST
+frontend --> groupCtrl : HTTP/REST
+frontend --> progCtrl : HTTP/REST
+frontend --> alertCtrl : HTTP/REST
+
+frontend --> swagger : Browse API Docs
+
+' Controllers to Services
+userCtrl --> userSvc
+estCtrl --> estSvc
+groupCtrl --> groupSvc
+progCtrl --> progSvc
+alertCtrl --> alertSvc
+
+' Services to Repositories
+userSvc --> userRepo
+estSvc --> estRepo
+groupSvc --> groupRepo
+progSvc --> progRepo
+alertSvc --> alertRepo
+
+' Cross-service dependencies
+groupSvc --> userRepo : "fetch members"
+groupSvc --> estRepo : "verify establishment"
+progSvc --> userRepo : "fetch user"
+progSvc --> groupRepo : "fetch group"
+alertSvc --> userRepo : "fetch user"
+
+' Repositories to Entities
+userRepo --> userEntity
+estRepo --> estEntity
+groupRepo --> groupEntity
+progRepo --> progEntity
+alertRepo --> alertEntity
+
+' Repositories to Database
+userRepo --> h2db
+estRepo --> h2db
+groupRepo --> h2db
+progRepo --> h2db
+alertRepo --> h2db
+
+' Configuration relationships
+cors -[hidden]-> openapi
+cors ..> userCtrl : "applies CORS"
+exception ..> userCtrl : "handles errors"
+openapi ..> swagger : "generates docs"
+
+' Future integrations (dashed)
+progSvc ..> exerciseSvc : "future: fetch exercises"
+progSvc ..> scoringSvc : "future: get scores"
+alertSvc ..> notifSvc : "future: send notifications"
+
+' Notes
+note right of frontend
+    **CORS Enabled**
+    Origin: localhost:5173
+    Methods: GET, POST, PUT, DELETE
+end note
+
+note bottom of h2db
+    **In-Memory Database**
+    JDBC: jdbc:h2:mem:userprogressdb
+    Console: /h2-console
+    Data lost on restart
+end note
+
+note right of swagger
+    **API Documentation**
+    URL: /swagger-ui.html
+    OpenAPI: /v3/api-docs
+end note
+
+note bottom of exerciseSvc
+    **Future Service Integrations**
+    - REST API communication
+    - Message queue (RabbitMQ/Kafka)
+    - gRPC for performance-critical calls
+end note
+
+@enduml

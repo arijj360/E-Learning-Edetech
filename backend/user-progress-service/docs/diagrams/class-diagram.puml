@@ -1,0 +1,293 @@
+@startuml User Progress Service - Domain Model Class Diagram
+
+' Styling
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor LightBlue
+    BorderColor DarkBlue
+    ArrowColor DarkSlateGray
+}
+
+' Entities
+class User {
+    - id: Long
+    - email: String
+    - password: String
+    - firstName: String
+    - lastName: String
+    - role: Role
+    - targetCefrLevel: CefrLevel
+    - createdAt: LocalDateTime
+    - updatedAt: LocalDateTime
+    --
+    + getId(): Long
+    + getEmail(): String
+    + getFullName(): String
+    + isStudent(): boolean
+    + isTeacher(): boolean
+    + isAdmin(): boolean
+}
+
+class Establishment {
+    - id: Long
+    - name: String
+    - address: String
+    - contactEmail: String
+    - createdAt: LocalDateTime
+    --
+    + getId(): Long
+    + getName(): String
+    + getUserCount(): int
+    + getGroupCount(): int
+}
+
+class Group {
+    - id: Long
+    - name: String
+    - createdAt: LocalDateTime
+    --
+    + getId(): Long
+    + getName(): String
+    + addMember(user: User): void
+    + removeMember(user: User): void
+    + getMemberCount(): int
+    + hasUser(userId: Long): boolean
+}
+
+class Progress {
+    - id: Long
+    - userId: Long
+    - groupId: Long
+    - currentCefrLevel: CefrLevel
+    - exercisesCompleted: Integer
+    - totalScore: Double
+    - lastActivity: LocalDateTime
+    - createdAt: LocalDateTime
+    - updatedAt: LocalDateTime
+    --
+    + getId(): Long
+    + updateProgress(score: Double): void
+    + incrementExercises(): void
+    + getAverageScore(): Double
+    + getLevelProgress(): Double
+}
+
+class Alert {
+    - id: Long
+    - userId: Long
+    - type: AlertType
+    - message: String
+    - isRead: Boolean
+    - createdAt: LocalDateTime
+    --
+    + getId(): Long
+    + markAsRead(): void
+    + isUnread(): boolean
+    + getFormattedMessage(): String
+}
+
+' Enums
+enum Role {
+    STUDENT
+    TEACHER
+    ADMIN
+}
+
+enum CefrLevel {
+    A1
+    A2
+    B1
+    B2
+    C1
+    C2
+    --
+    + next(): CefrLevel
+    + ordinal(): int
+    + isHigherThan(other: CefrLevel): boolean
+}
+
+enum AlertType {
+    ACHIEVEMENT
+    REMINDER
+    WARNING
+    INFO
+}
+
+' DTOs
+class UserRequest {
+    - email: String
+    - password: String
+    - firstName: String
+    - lastName: String
+    - role: Role
+    - targetCefrLevel: CefrLevel
+    - establishmentId: Long
+}
+
+class UserResponse {
+    - id: Long
+    - email: String
+    - firstName: String
+    - lastName: String
+    - role: Role
+    - targetCefrLevel: CefrLevel
+    - establishmentName: String
+    - createdAt: LocalDateTime
+}
+
+class ProgressRequest {
+    - userId: Long
+    - groupId: Long
+    - currentCefrLevel: CefrLevel
+    - exercisesCompleted: Integer
+    - totalScore: Double
+}
+
+class ProgressResponse {
+    - id: Long
+    - userId: Long
+    - userName: String
+    - groupId: Long
+    - groupName: String
+    - currentCefrLevel: CefrLevel
+    - exercisesCompleted: Integer
+    - totalScore: Double
+    - averageScore: Double
+    - lastActivity: LocalDateTime
+}
+
+' Repositories
+interface UserRepository {
+    + findByEmail(email: String): Optional<User>
+    + findByRole(role: Role): List<User>
+    + findByEstablishmentId(id: Long): List<User>
+}
+
+interface GroupRepository {
+    + findByEstablishmentId(id: Long): List<Group>
+}
+
+interface ProgressRepository {
+    + findByUserId(userId: Long): List<Progress>
+    + findByGroupId(groupId: Long): List<Progress>
+    + findByUserIdAndGroupId(userId: Long, groupId: Long): Optional<Progress>
+}
+
+interface AlertRepository {
+    + findByUserId(userId: Long): List<Alert>
+    + findByUserIdAndIsRead(userId: Long, isRead: Boolean): List<Alert>
+}
+
+' Services
+class UserService {
+    - userRepository: UserRepository
+    - establishmentRepository: EstablishmentRepository
+    --
+    + getAllUsers(): List<UserResponse>
+    + getUserById(id: Long): UserResponse
+    + createUser(request: UserRequest): UserResponse
+    + updateUser(id: Long, request: UserRequest): UserResponse
+    + deleteUser(id: Long): void
+    + updateTargetLevel(id: Long, level: CefrLevel): UserResponse
+}
+
+class ProgressService {
+    - progressRepository: ProgressRepository
+    - userRepository: UserRepository
+    - groupRepository: GroupRepository
+    - alertService: AlertService
+    --
+    + getProgressByUserId(userId: Long): List<ProgressResponse>
+    + getProgressByGroupId(groupId: Long): List<ProgressResponse>
+    + createOrUpdateProgress(request: ProgressRequest): ProgressResponse
+    - checkMilestones(progress: Progress): void
+    - calculateAverageScore(progress: Progress): Double
+}
+
+class AlertService {
+    - alertRepository: AlertRepository
+    - userRepository: UserRepository
+    --
+    + getAlertsByUserId(userId: Long): List<AlertResponse>
+    + createAlert(request: AlertRequest): AlertResponse
+    + markAsRead(id: Long): AlertResponse
+    + createAchievementAlert(userId: Long, message: String): void
+}
+
+' Relationships - Entities
+User "1" o-- "0..1" Establishment : belongs to >
+User "0..*" -- "0..*" Group : member of >
+User "1" o-- "0..*" Progress : has >
+User "1" o-- "0..*" Alert : receives >
+Establishment "1" o-- "0..*" Group : contains >
+Group "1" o-- "0..*" Progress : tracks >
+
+' Enum relationships
+User -- Role : role
+User -- CefrLevel : target level
+Progress -- CefrLevel : current level
+Alert -- AlertType : type
+
+' DTO relationships
+UserRequest ..> User : creates
+User ..> UserResponse : maps to
+ProgressRequest ..> Progress : creates
+Progress ..> ProgressResponse : maps to
+
+' Repository relationships
+UserRepository ..> User : manages
+GroupRepository ..> Group : manages
+ProgressRepository ..> Progress : manages
+AlertRepository ..> Alert : manages
+
+' Service relationships
+UserService --> UserRepository : uses
+UserService ..> UserRequest : accepts
+UserService ..> UserResponse : returns
+
+ProgressService --> ProgressRepository : uses
+ProgressService --> UserRepository : validates
+ProgressService --> GroupRepository : validates
+ProgressService --> AlertService : notifies
+ProgressService ..> ProgressRequest : accepts
+ProgressService ..> ProgressResponse : returns
+
+AlertService --> AlertRepository : uses
+AlertService --> UserRepository : validates
+
+' Notes
+note right of User
+    **Core Entity**
+    - Unique email constraint
+    - Role-based permissions
+    - Password should be hashed
+    - Timestamps auto-managed
+end note
+
+note bottom of Progress
+    **Performance Tracking**
+    - Cumulative score tracking
+    - Exercise completion counter
+    - CEFR level progression
+    - Group association optional
+end note
+
+note left of CefrLevel
+    **CEFR Standard**
+    Common European Framework
+    of Reference for Languages
+    
+    A1, A2: Basic user
+    B1, B2: Independent user
+    C1, C2: Proficient user
+end note
+
+note right of ProgressService
+    **Business Logic**
+    - Validates user/group existence
+    - Updates or creates progress
+    - Checks achievement milestones
+    - Triggers alerts for achievements
+end note
+
+@enduml
