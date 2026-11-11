@@ -1,0 +1,22 @@
+package com.oralis.userprogress.dto;
+
+import com.oralis.userprogress.entity.CefrLevel;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class ProgressRequest {
+    
+    @NotNull(message = "User ID is required")
+    private Long userId;
+    
+    private CefrLevel currentLevel;
+    
+    private Double score;
+    
+    private Integer completedExercises;
+}
