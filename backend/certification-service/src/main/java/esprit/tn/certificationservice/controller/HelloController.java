@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
 @Tag(name = "Hello", description = "Endpoint de test du service")
-public class HelloController {
-
+public class
+HelloController {
     @GetMapping("/hello")
     @Operation(summary = "Affiche un message de bienvenue")
     public String hello() {
