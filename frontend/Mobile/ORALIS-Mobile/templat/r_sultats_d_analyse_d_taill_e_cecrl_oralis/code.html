@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary": "#555c6e", "on-surface-variant": "#464555", "on-tertiary": "#ffffff", "secondary-fixed": "#d8e3fb", "background": "#f8f9ff", "on-secondary-fixed": "#111c2d", "secondary-container": "#d5e0f8", "surface-container-highest": "#d9e3f6", "primary-fixed-dim": "#c4c0ff", "on-tertiary-container": "#fefcff", "tertiary-fixed": "#dce2f7", "surface-container-low": "#eff4ff", "on-error-container": "#93000a", "on-background": "#121c2a", "on-tertiary-fixed": "#141b2b", "surface-container": "#e6eeff", "inverse-on-surface": "#eaf1ff", "on-secondary": "#ffffff", "inverse-primary": "#c4c0ff", "surface-bright": "#f8f9ff", "secondary-fixed-dim": "#bcc7de", "primary-container": "#675df9", "tertiary-container": "#6e7487", "inverse-surface": "#27313f", "error": "#ba1a1a", "surface-container-high": "#dee9fc", "error-container": "#ffdad6", "on-secondary-fixed-variant": "#3c475a", "surface-dim": "#d0dbed", "primary-fixed": "#e3dfff", "on-primary-fixed": "#100069", "on-primary": "#ffffff", "on-surface": "#121c2a", "on-secondary-container": "#586377", "surface": "#f8f9ff", "tertiary-fixed-dim": "#c0c6db", "on-tertiary-fixed-variant": "#404758", "on-error": "#ffffff", "on-primary-fixed-variant": "#3622ca", "surface-tint": "#4f44e2", "outline-variant": "#c7c4d8", "primary": "#4d41df", "surface-variant": "#d9e3f6", "surface-container-lowest": "#ffffff", "on-primary-container": "#fffbff", "outline": "#777587", "secondary": "#545f73" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "space-lg": "1.5rem", "margin-sm": "1rem", "gutter": "1.5rem", "space-md": "1rem", "gutter-sm": "1rem", "space-sm": "0.5rem", "margin": "2rem", "space-xl": "2.5rem" }, "fontFamily": { "body-md": ["Inter"], "label-lg": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "display-lg-mobile": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "display-lg": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "body-sm": ["Inter"] }, "fontSize": { "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "600" }], "display-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }] } } } }</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-50 flex flex-col shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-6 flex items-center gap-3 shrink-0"><img alt="ORALIS Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClKaAhcL1uuWutzkx07Qwm5L2bzodsk1zB7ZYsOopj2LXaz7sF6kk8vEk3K-KI6UWDJT0KCZl3q4oXpWkRG-cSSdynpl2-F22hwSrb_9GhZGXf6Wjv1RZjekLJW03NCxxdI2n5vciA4URsvxxpEM1fTxokcBZp7Nf5OG0Lc6RoKP9f-nplWgNU1lqi4lHlyexe_U-N8DuzN9CA0-GJT2RglDSkeDV1QAiNvrGVSV0"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold tracking-tight text-on-surface leading-none">ORALIS</span><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider mt-0.5">Expression Orale</span></div></div><div class="flex-1 overflow-y-auto px-4 py-4 space-y-6"><nav class="space-y-1" data-active-classes="bg-primary-container text-on-primary-container font-semibold"><div class="px-3 pb-2"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Apprentissage &amp; Pratique</span></div><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="tableau-de-bord" href="#"><span class="material-symbols-outlined text-[20px]">space_dashboard</span><span>Tableau de bord</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="pratique-orale-enregistrement" href="#"><span class="material-symbols-outlined text-[20px]">mic</span><span>Pratique Orale &amp; Studio</span></a><a aria-current="page" class="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all bg-primary-container text-on-primary-container font-semibold" data-path="analyse-resultats-cecrl" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span>Analyse CECRL (6 critères)</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="feedback-exercices" href="#"><span class="material-symbols-outlined text-[20px]">auto_fix_high</span><span>Feedback &amp; Exercices</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="simulations-examen" href="#"><span class="material-symbols-outlined text-[20px]">history_edu</span><span>Simulations d'Examen</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="certifications-attestations" href="#"><span class="material-symbols-outlined text-[20px]">verified</span><span>Certifications &amp; Attestations</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="suivi-progression" href="#"><span class="material-symbols-outlined text-[20px]">trending_up</span><span>Suivi &amp; Progression</span></a></nav><nav class="space-y-1" data-active-classes="bg-primary-container text-on-primary-container font-semibold"><div class="px-3 pb-2"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Encadrement &amp; Institution</span></div><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="gestion-groupes" href="#"><span class="material-symbols-outlined text-[20px]">groups</span><span>Gestion des Groupes</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="validation-feedback-formateur" href="#"><span class="material-symbols-outlined text-[20px]">assignment_turned_in</span><span>Validation Formateur</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="pilotage-institutionnel" href="#"><span class="material-symbols-outlined text-[20px]">account_balance</span><span>Pilotage Institutionnel</span></a></nav></div><div class="p-4 shrink-0 bg-surface-container-low"><div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest shadow-[0_1px_3px_rgba(17,24,39,0.04)]"><div class="flex flex-col"><span class="font-label-sm text-label-sm text-outline">Quota Studio</span><span class="font-label-md text-label-md text-on-surface">14h 20m / 20h</span></div><div class="h-7 w-7 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed"><span class="material-symbols-outlined text-[16px]">graphic_eq</span></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="w-full h-16 px-8 flex items-center justify-between gap-4"><div class="flex items-center gap-3"><div class="inline-flex items-center p-1 rounded-full bg-surface-container"><button class="px-3 py-1 rounded-full font-label-md text-label-md bg-surface-container-lowest text-on-surface shadow-[0_1px_2px_rgba(0,0,0,0.06)] flex items-center gap-1.5" type="button"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Apprenant</button><button class="px-3 py-1 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" type="button">Formateur</button><button class="px-3 py-1 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" type="button">Établissement</button></div><div class="h-5 w-[1px] bg-surface-container-high"></div><div class="flex items-center gap-2 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px]">school</span><span class="font-semibold">Français • DALF C1</span></div></div><div class="flex items-center gap-4"><div class="flex items-center rounded-lg bg-surface-container-low p-1 font-label-sm text-label-sm text-on-surface-variant"><button class="px-2 py-0.5 rounded font-bold bg-surface-container-lowest text-on-surface shadow-sm" type="button">FR</button><button class="px-2 py-0.5 rounded hover:text-on-surface transition-colors" type="button">EN</button></div><button class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary"></span></button><div class="flex items-center gap-3 pl-2"><div class="flex flex-col text-right hidden sm:flex"><span class="font-label-md text-label-md font-semibold text-on-surface leading-tight">Claire de Saint-Ange</span><span class="font-label-sm text-label-sm text-outline">Candidat DALF C1</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN2ePe9m99QFK70IocKaq4n_JLc__CUY1X6PNJzlr_wG9nPFQbvrJRu383Df91ZSxu6KMKVvAKD_4Px_895PdwA2mN0DmZb2JR2SRS4nMPcEoSW4yF78SF13M2Bb4Ht4vuwPPTRBvolRI3YgSy_SQcFVe9Y6QFCMm4r7S4jZFlWVMGDc9M-iTWUFLNYbp61TXLX1P2-Aw_-tPvAff2XVShelMNSdljlFDva4WGQs4"/></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Session Diagnostic Bar -->
+<div class="px-8 py-6 bg-surface-container-lowest shadow-sm flex flex-col xl:flex-row xl:items-center xl:justify-between gap-6 relative overflow-hidden">
+<div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-primary/5 blur-3xl pointer-events-none"></div>
+<div class="flex flex-col gap-2 relative z-10">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm uppercase tracking-wider font-bold">DALF C1 • Synthèse Critique</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Session #204</span>
+<span class="text-outline font-body-sm text-body-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">calendar_today</span> 24 Octobre 2024
+        </span>
+<span class="text-outline font-body-sm text-body-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">timer</span> 04:32 min
+        </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">
+        Analyse • Transition écologique &amp; souveraineté industrielle
+      </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+        Évaluation automatisée par l'Analysis Engine v4.2 couplé au modèle acoustique CECRL certifié.
+      </p>
+</div>
+<!-- Overall Score & Export -->
+<div class="flex items-center gap-5 relative z-10 shrink-0">
+<div class="flex items-center gap-4 bg-surface-container-low px-5 py-3 rounded-xl shadow-inner">
+<div class="relative flex items-center justify-center">
+<svg class="w-16 h-16 transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-high" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="87, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<div class="absolute flex flex-col items-center justify-center">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface leading-none">87</span>
+<span class="font-label-sm text-label-sm text-outline leading-none mt-0.5">/100</span>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-primary font-bold">Niveau CECRL</span>
+<span class="px-1.5 py-0.2 rounded bg-primary text-on-primary font-label-sm text-label-sm font-bold">C1 AVANCÉ</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Aptitude confirmée</span>
+<span class="font-label-sm text-label-sm text-outline">Percentile: 94e supérieur</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-2">
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span> Partager
+        </button>
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span> Rapport PDF
+        </button>
+</div>
+</div>
+</div>
+<!-- Trainer Pending Review Banner -->
+<div class="mx-8 mt-6 p-4 rounded-xl bg-secondary-fixed text-on-secondary-fixed flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[22px]">pending_actions</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-bold">Attestation &amp; Validation Formateur</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm">En attente</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-secondary-fixed-variant mt-0.5">
+          Assigné à <strong class="font-semibold text-on-secondary-fixed">Marc V. (Examinateur habilité CIEP/FEI)</strong>. Temps moyen de retour estimé : 6h ouvrées.
+        </p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<button class="px-3.5 py-1.5 rounded-lg bg-surface-container-lowest hover:bg-surface-bright text-on-secondary-fixed font-label-md text-label-md shadow-sm transition-all flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[17px] text-primary">priority_high</span> Demander une révision prioritaire
+      </button>
+</div>
+</div>
+<!-- Main Grid Content Area -->
+<div class="p-8 space-y-8">
+<!-- Synchronized Audio Player Console -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-md relative overflow-hidden">
+<div class="flex flex-col md:flex-row md:items-center justify-between pb-4 gap-4">
+<div class="flex items-center gap-3">
+<div class="p-2 rounded-lg bg-primary-fixed text-on-primary-fixed">
+<span class="material-symbols-outlined text-[20px]">graphic_eq</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Lecteur Acoustique Synchronisé</h3>
+<span class="font-body-sm text-body-sm text-outline">Piste originale • Analyse spectrale 48 kHz / 24-bit</span>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end md:self-auto">
+<div class="flex items-center rounded-lg bg-surface-container p-1 font-label-sm text-label-sm text-on-surface-variant">
+<button class="px-2.5 py-1 rounded font-bold hover:bg-surface-container-lowest hover:text-on-surface transition-all" type="button">0.8x</button>
+<button class="px-2.5 py-1 rounded font-bold bg-surface-container-lowest text-primary shadow-xs" type="button">1.0x</button>
+<button class="px-2.5 py-1 rounded font-bold hover:bg-surface-container-lowest hover:text-on-surface transition-all" type="button">1.2x</button>
+</div>
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" title="Activer réduction du bruit ambiant" type="button">
+<span class="material-symbols-outlined text-[20px]">noise_aware</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" title="Boucle sur sélection critique" type="button">
+<span class="material-symbols-outlined text-[20px]">repeat</span>
+</button>
+</div>
+</div>
+<!-- Waveform Interactive Track with Color coded segments -->
+<div class="my-4 bg-surface-container-low rounded-xl p-4 flex flex-col gap-2 relative">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-outline px-1">
+<span>01:14 (Segment actif)</span>
+<span class="text-primary font-semibold">Erreur de liaison détectée à 01:21</span>
+<span>04:32</span>
+</div>
+<!-- Waveform Simulation SVG -->
+<div class="h-20 w-full flex items-center justify-between gap-[2px] cursor-pointer group py-2" id="waveform-container">
+<!-- Bars generated via varied heights and colors -->
+<div class="w-1.5 h-6 rounded-full bg-primary/40 group-hover:bg-primary transition-all"></div>
+<div class="w-1.5 h-10 rounded-full bg-primary/40 group-hover:bg-primary transition-all"></div>
+<div class="w-1.5 h-14 rounded-full bg-primary/50 group-hover:bg-primary transition-all"></div>
+<div class="w-1.5 h-8 rounded-full bg-primary/60 group-hover:bg-primary transition-all"></div>
+<div class="w-1.5 h-16 rounded-full bg-primary/80 group-hover:bg-primary transition-all"></div>
+<div class="w-1.5 h-12 rounded-full bg-primary group-hover:bg-primary transition-all"></div>
+<div class="w-1.5 h-7 rounded-full bg-primary group-hover:bg-primary transition-all"></div>
+<div class="w-1.5 h-14 rounded-full bg-primary group-hover:bg-primary transition-all"></div>
+<!-- Pause highlight -->
+<div class="w-1.5 h-2 rounded-full bg-amber-400 group-hover:scale-y-125 transition-transform" title="Pause 1.9s"></div>
+<div class="w-1.5 h-2 rounded-full bg-amber-400 group-hover:scale-y-125 transition-transform"></div>
+<div class="w-1.5 h-11 rounded-full bg-primary group-hover:bg-primary transition-all"></div>
+<div class="w-1.5 h-16 rounded-full bg-primary group-hover:bg-primary transition-all"></div>
+<div class="w-1.5 h-12 rounded-full bg-primary group-hover:bg-primary transition-all"></div>
+<!-- Playhead indicator -->
+<div class="relative flex flex-col items-center">
+<span class="absolute -top-3 w-2.5 h-2.5 rounded-full bg-error ring-4 ring-error/20"></span>
+<div class="w-1.5 h-16 rounded-full bg-error"></div>
+</div>
+<div class="w-1.5 h-14 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-9 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-5 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-12 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-15 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-8 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-14 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-16 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-10 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-6 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-13 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-16 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-11 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-7 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-14 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-15 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-10 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-6 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-4 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-12 rounded-full bg-outline-variant"></div>
+<div class="w-1.5 h-14 rounded-full bg-outline-variant"></div>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-outline pt-1">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-primary"></span> Phonétique fluide</span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span> Pause marquée (&gt;1.8s)</span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-error"></span> Anomalie syntaxique / liaison</span>
+</div>
+<span class="font-label-sm text-label-sm">Curseur synchro texte activé</span>
+</div>
+</div>
+<!-- Controls row -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-3">
+<button class="p-2 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">replay_10</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-primary hover:bg-primary-container text-on-primary flex items-center justify-center shadow-md transition-transform active:scale-95" type="button">
+<span class="material-symbols-outlined text-[26px]">play_arrow</span>
+</button>
+<button class="p-2 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">forward_10</span>
+</button>
+<div class="h-5 w-[1px] bg-outline-variant mx-1"></div>
+<span class="font-label-md text-label-md font-semibold text-on-surface">01:14</span>
+<span class="text-outline font-label-md text-label-md">/ 04:32</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-outline">volume_up</span>
+<div class="w-24 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-3/4 h-full bg-primary rounded-full"></div>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold hover:bg-surface-container-highest transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">bookmark_add</span> Segmenter
+          </button>
+</div>
+</div>
+</div>
+<!-- 6 CECRL Evaluation Criteria Mosaic Grid -->
+<div>
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-5 gap-2">
+<div>
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-widest">Grille Officielle Cadre Européen</span>
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">6 Critères d'Excellence Évalués</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md text-right hidden md:block">
+          Seuil de maîtrise C1 validé à ≥ 75/100 sur l'ensemble des composantes d'expression autonome.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Criterion 1: Prononciation -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">record_voice_over</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface">1. Prononciation</h4>
+<span class="font-label-sm text-label-sm text-outline">Phonétique &amp; Articulation</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">88</span>
+<span class="font-label-sm text-label-sm text-outline">/100</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full my-3 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 88%"></div>
+</div>
+<div class="space-y-2 mt-3 font-body-sm text-body-sm">
+<div class="p-2 rounded-lg bg-surface-container-low flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary shrink-0 mt-0.5">check_circle</span>
+<span class="text-on-surface"><strong class="font-semibold">Point fort :</strong> Phonèmes nasaux [/ɔ̃/, /ʻ̃/] d'une grande netteté académique.</span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-low flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-error shrink-0 mt-0.5">warning</span>
+<span class="text-on-surface"><strong class="font-semibold">Vigilance :</strong> Deux liaisons obligatoires en [t] omises ("dont on", "tout autre").</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t-0 flex items-center justify-between text-label-sm font-label-sm text-primary">
+<span class="font-semibold">Voir spectres acoustiques</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- Criterion 2: Fluidité -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[20px]">speed</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface">2. Fluidité</h4>
+<span class="font-label-sm text-label-sm text-outline">Débit &amp; Enchaînement</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">82</span>
+<span class="font-label-sm text-label-sm text-outline">/100</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full my-3 overflow-hidden">
+<div class="bg-on-secondary-container h-full rounded-full" style="width: 82%"></div>
+</div>
+<div class="grid grid-cols-2 gap-2 my-2">
+<div class="p-2 rounded-lg bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-outline block">Débit moyen</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">134</span>
+<span class="text-body-sm font-body-sm text-outline">mots/min</span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-outline block">Micro-pauses</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">6</span>
+<span class="text-body-sm font-body-sm text-outline">&gt; 1.5s détectées</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+              Rythme global très naturel, malgré une hésitation sur le paragraphe de transition économique à 02:40.
+            </p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-label-sm font-label-sm text-primary">
+<span class="font-semibold">Rapport de vélocité vocale</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- Criterion 3: Intonation & Prosodie -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-primary-fixed-dim flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">music_note</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface">3. Intonation &amp; Prosodie</h4>
+<span class="font-label-sm text-label-sm text-outline">Mélodie &amp; Expressivité</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">84</span>
+<span class="font-label-sm text-label-sm text-outline">/100</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full my-3 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 84%"></div>
+</div>
+<div class="space-y-2 mt-3 font-body-sm text-body-sm">
+<div class="p-2 rounded-lg bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider block">Accentuation tonique</span>
+<p class="text-on-surface mt-0.5">Excellente projection sur la syllabe finale des groupes rythmiques. Intonation assertive convaincante.</p>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-outline font-bold uppercase tracking-wider block">Modalités interrogatives</span>
+<p class="text-on-surface mt-0.5">Courbe mélodique montante bien marquée lors des questions rhétoriques.</p>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-label-sm font-label-sm text-primary">
+<span class="font-semibold">Courbe F0 superposée</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- Criterion 4: Richesse Lexicale -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[20px]">auto_stories</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface">4. Richesse Lexicale</h4>
+<span class="font-label-sm text-label-sm text-outline">Variété &amp; Précision C1</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">92</span>
+<span class="font-label-sm text-label-sm text-outline">/100</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full my-3 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 92%"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+              Vocabulaire spécialisé remarquable : <em class="text-on-surface font-medium">« paradigme sociétal »</em>, <em class="text-on-surface font-medium">« résilience endogène »</em>, <em class="text-on-surface font-medium">« corollaire indissociable »</em>.
+            </p>
+<div class="mt-3 flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">Registre formel: 96%</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">Répétitions: &lt; 3%</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">Collocations C1: 18</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-label-sm font-label-sm text-primary">
+<span class="font-semibold">Explorer le champ lexical</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- Criterion 5: Correction Grammaticale -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[20px]">spellcheck</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface">5. Grammaire &amp; Syntaxe</h4>
+<span class="font-label-sm text-label-sm text-outline">Concordance &amp; Subjonctif</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">86</span>
+<span class="font-label-sm text-label-sm text-outline">/100</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full my-3 overflow-hidden">
+<div class="bg-on-secondary-container h-full rounded-full" style="width: 86%"></div>
+</div>
+<div class="space-y-2 mt-3 font-body-sm text-body-sm">
+<div class="p-2 rounded-lg bg-surface-container-low flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary shrink-0 mt-0.5">done_all</span>
+<span class="text-on-surface">Concordance des temps au conditionnel passé et subjonctif parfaitement maîtrisée (ex: <em>« bien qu'il faille »</em>).</span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-low flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-error shrink-0 mt-0.5">info</span>
+<span class="text-on-surface">1 anacoluthe légère relevée à 03:15 lors de l'énumération comparative.</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-label-sm font-label-sm text-primary">
+<span class="font-semibold">Revue syntaxique détaillée</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- Criterion 6: Cohérence & Organisation -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">account_tree</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface">6. Cohérence Discursive</h4>
+<span class="font-label-sm text-label-sm text-outline">Connecteurs &amp; Rhétorique</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">89</span>
+<span class="font-label-sm text-label-sm text-outline">/100</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full my-3 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 89%"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+              Architecture argumentative limpide (Thèse • Antithèse • Dépassement). Les charnières logiques fluidifient la démonstration :
+            </p>
+<div class="mt-3 flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">« Néanmoins »</span>
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">« En outre »</span>
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">« Par conséquent »</span>
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">« D'ores et déjà »</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-label-sm font-label-sm text-primary">
+<span class="font-semibold">Plan logique reconstitué</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Asymmetric Split Section: Word-Level Interactive Transcript + Phonetic Analysis Engine -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Word-Level Transcript (7 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[22px]">subject</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Transcription Précise &amp; Horodatée</h3>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-outline">Survolez un mot pour afficher l'IPA</span>
+</div>
+</div>
+<!-- Legend Pills -->
+<div class="flex flex-wrap items-center gap-3 p-2.5 rounded-lg bg-surface-container-low text-body-sm font-body-sm">
+<span class="inline-flex items-center gap-1.5 text-on-surface">
+<span class="w-3 h-3 rounded bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-[10px]">A</span>
+            Prononciation exemplaire
+          </span>
+<span class="inline-flex items-center gap-1.5 text-on-surface">
+<span class="w-3 h-3 rounded bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-[10px]">!</span>
+            Hésitation / Disfluence
+          </span>
+<span class="inline-flex items-center gap-1.5 text-on-surface">
+<span class="w-3 h-3 rounded bg-red-100 text-red-800 flex items-center justify-center font-bold text-[10px]">×</span>
+            Liaison ou accord perfectible
+          </span>
+</div>
+<!-- Interactive Paragraph with Tooltips -->
+<div class="font-body-lg text-body-lg leading-relaxed text-on-surface space-y-4 p-4 rounded-xl bg-surface-container-low/50 select-text">
+<p>
+<span class="text-outline font-label-sm text-label-sm select-none mr-2">[00:15]</span>
+            Il convient d'aborder la question de la réindustrialisation sous un prisme non seulement économique, 
+            <span class="relative group cursor-pointer bg-emerald-100 text-emerald-900 px-1 py-0.5 rounded font-medium">
+              mais résolument écologique
+              <!-- Tooltip popup -->
+<span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:flex flex-col bg-inverse-surface text-inverse-on-surface p-2.5 rounded-lg shadow-xl text-label-sm font-label-sm w-56 z-30 pointer-events-none">
+<span class="text-primary-fixed-dim font-bold font-mono">/mɛ ʁe.zɔ.ly.mɑ̃ e.kɔ.lɔ.ʒik/</span>
+<span class="text-surface-variant text-[11px] mt-1">Accentuation dynamique parfaite. Ton soutenu et posé.</span>
+</span>
+</span>. 
+            Comme le soulignent les derniers rapports du GIEC, nous ne saurions dissocier le progrès technologique des contraintes biophysiques imposées par notre écosystème.
+          </p>
+<p>
+<span class="text-outline font-label-sm text-label-sm select-none mr-2">[01:12]</span>
+<span class="relative group cursor-pointer bg-primary-fixed text-on-primary-fixed font-semibold px-1 py-0.5 rounded">
+              Néanmoins,
+              <span class="absolute bottom-full left-0 mb-2 hidden group-hover:flex flex-col bg-inverse-surface text-inverse-on-surface p-2 rounded shadow-xl text-label-sm font-label-sm w-48 z-30 pointer-events-none">
+<span>Connecteur logique d'opposition C1</span>
+<span class="text-primary-fixed-dim text-[11px]">Intonation montante respectée</span>
+</span>
+</span>
+            il paraît illusoire de penser
+            <span class="relative group cursor-pointer bg-amber-100 text-amber-900 px-1.5 py-0.5 rounded inline-flex items-center gap-1 mx-1">
+<span class="material-symbols-outlined text-[14px]">timer</span> [pause 1.9s]
+              <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:flex flex-col bg-inverse-surface text-inverse-on-surface p-2 rounded shadow-xl text-label-sm font-label-sm w-52 z-30 pointer-events-none">
+<span class="font-bold text-amber-300">Rupture du flux lexical</span>
+<span class="text-[11px]">Recommandation: Remplacer le silence par un connecteur de structuration tel que « en ce sens ».</span>
+</span>
+</span>
+            que le simple mécanisme des marchés carbone suffira à infléchir la trajectoire actuelle. 
+            C'est 
+            <span class="relative group cursor-pointer bg-red-100 text-red-900 px-1 py-0.5 rounded font-medium underline decoration-error decoration-2 underline-offset-2">
+              un aspect dont on
+              <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:flex flex-col bg-inverse-surface text-inverse-on-surface p-2.5 rounded-lg shadow-xl text-label-sm font-label-sm w-60 z-30 pointer-events-none">
+<span class="text-red-300 font-bold">Liaison en [t] omise</span>
+<span class="font-mono text-white text-[12px]">Attendu : /dɔ̃.tɔ̃/</span>
+<span class="font-mono text-outline-variant text-[12px]">Produit : /dɔ̃ ɔ̃/</span>
+<span class="text-surface-variant text-[11px] mt-1">À ce niveau de maîtrise formelle, la liaison euphonique est requise.</span>
+</span>
+</span> 
+            ne peut faire l'économie si nous souhaitons instaurer une politique pérenne.
+          </p>
+<p>
+<span class="text-outline font-label-sm text-label-sm select-none mr-2">[02:30]</span>
+            En définitive, bien qu'il 
+            <span class="relative group cursor-pointer bg-emerald-100 text-emerald-900 px-1 py-0.5 rounded font-medium">
+              faille consentir à des arbitrages
+              <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:flex flex-col bg-inverse-surface text-inverse-on-surface p-2.5 rounded-lg shadow-xl text-label-sm font-label-sm w-56 z-30 pointer-events-none">
+<span class="text-emerald-300 font-bold">Subjonctif Présent C1 Validé</span>
+<span class="text-surface-variant text-[11px]">Usage impeccable de la structure impersonnelle concessive.</span>
+</span>
+</span>
+            drastiques, l'émulation collective demeure le moteur prépondérant de notre souveraineté future.
+          </p>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-outline pt-2">
+<span>Total mots transcrits : 612</span>
+<span>Précision ASR : 98.4%</span>
+</div>
+</div>
+<!-- Radar Chart & Phonetic Visualization (5 Cols) -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Radar Visualization Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Profil Compétence CECRL</h3>
+<span class="font-label-sm text-label-sm text-outline">Cartographie multidimensionnelle C1</span>
+</div>
+<span class="px-2 py-1 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">Cohérent</span>
+</div>
+<!-- Radar SVG Diagram -->
+<div class="flex items-center justify-center py-2">
+<svg class="w-64 h-64 overflow-visible" viewbox="0 0 200 200">
+<!-- Radial Grid Polygons -->
+<polygon class="text-surface-container-high" fill="none" points="100,20 170,55 170,145 100,180 30,145 30,55" stroke="currentColor" stroke-width="1"></polygon>
+<polygon class="text-surface-container-high" fill="none" points="100,40 150,65 150,135 100,160 50,135 50,65" stroke="currentColor" stroke-width="1"></polygon>
+<polygon class="text-surface-container-high" fill="none" points="100,60 130,75 130,125 100,140 70,125 70,75" stroke="currentColor" stroke-width="1"></polygon>
+<!-- Axes -->
+<line class="text-surface-container-high" stroke="currentColor" stroke-width="1" x1="100" x2="100" y1="100" y2="20"></line>
+<line class="text-surface-container-high" stroke="currentColor" stroke-width="1" x1="100" x2="170" y1="100" y2="55"></line>
+<line class="text-surface-container-high" stroke="currentColor" stroke-width="1" x1="100" x2="170" y1="100" y2="145"></line>
+<line class="text-surface-container-high" stroke="currentColor" stroke-width="1" x1="100" x2="100" y1="100" y2="180"></line>
+<line class="text-surface-container-high" stroke="currentColor" stroke-width="1" x1="100" x2="30" y1="100" y2="145"></line>
+<line class="text-surface-container-high" stroke="currentColor" stroke-width="1" x1="100" x2="30" y1="100" y2="55"></line>
+<!-- Target Benchmark Polygon (C1 Standard) -->
+<polygon class="text-outline-variant" fill="none" points="100,40 152,67 152,132 100,160 48,132 48,67" stroke="currentColor" stroke-dasharray="3,3" stroke-width="1.5"></polygon>
+<!-- Candidate Output Polygon -->
+<polygon class="text-primary/20" fill="currentColor" points="100,28 162,60 156,138 100,168 38,137 42,60" stroke="currentColor"></polygon>
+<polygon class="text-primary" fill="none" points="100,28 162,60 156,138 100,168 38,137 42,60" stroke="currentColor" stroke-width="2.5"></polygon>
+<!-- Data Points with Scores -->
+<circle class="fill-primary text-primary" cx="100" cy="28" r="4"></circle>
+<circle class="fill-primary text-primary" cx="162" cy="60" r="4"></circle>
+<circle class="fill-primary text-primary" cx="156" cy="138" r="4"></circle>
+<circle class="fill-primary text-primary" cx="100" cy="168" r="4"></circle>
+<circle class="fill-primary text-primary" cx="38" cy="137" r="4"></circle>
+<circle class="fill-primary text-primary" cx="42" cy="60" r="4"></circle>
+<!-- Labels -->
+<text class="text-[9px] font-bold fill-on-surface font-label-sm" text-anchor="middle" x="100" y="12">Prononciation (88)</text>
+<text class="text-[9px] font-bold fill-on-surface font-label-sm" text-anchor="start" x="178" y="56">Fluidité (82)</text>
+<text class="text-[9px] font-bold fill-on-surface font-label-sm" text-anchor="start" x="178" y="150">Prosodie (84)</text>
+<text class="text-[9px] font-bold fill-on-surface font-label-sm" text-anchor="middle" x="100" y="196">Lexique (92)</text>
+<text class="text-[9px] font-bold fill-on-surface font-label-sm" text-anchor="end" x="22" y="150">Syntaxe (86)</text>
+<text class="text-[9px] font-bold fill-on-surface font-label-sm" text-anchor="end" x="22" y="56">Cohérence (89)</text>
+</svg>
+</div>
+<div class="flex items-center justify-center gap-6 mt-4 text-label-sm font-label-sm">
+<span class="flex items-center gap-2">
+<span class="w-3 h-0.5 bg-primary"></span> Candidat (Claire)
+            </span>
+<span class="flex items-center gap-2 text-outline">
+<span class="w-3 h-0.5 bg-outline-variant border-b border-dashed border-outline"></span> Référence Seuil C1
+            </span>
+</div>
+</div>
+<!-- Phonetic & Intonation Curve Analysis Widget -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between pb-3">
+<div>
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface">Prosodie &amp; Intonation F0</h4>
+<span class="font-label-sm text-label-sm text-outline">Analyseur de hauteur mélodique fondamentale</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px]">graphic_eq</span>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg mt-2 space-y-3">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-semibold">« ...mais résolument écologique »</span>
+<span class="text-emerald-700 bg-emerald-100 px-1.5 py-0.2 rounded font-bold">Pente descendante assertive</span>
+</div>
+<!-- Pitch Contour SVG curve -->
+<div class="h-16 w-full flex items-center">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 300 60">
+<!-- Pitch baseline guides -->
+<line class="text-outline-variant/40" stroke="currentColor" stroke-dasharray="2,2" x1="0" x2="300" y1="15" y2="15"></line>
+<line class="text-outline-variant/40" stroke="currentColor" stroke-dasharray="2,2" x1="0" x2="300" y1="45" y2="45"></line>
+<!-- Target Pitch envelope -->
+<path class="text-outline-variant" d="M 0,35 Q 50,10 100,20 T 200,18 T 260,42 T 300,50" fill="none" stroke="currentColor" stroke-width="2"></path>
+<!-- User Pitch contour curve -->
+<path class="text-primary" d="M 0,38 Q 48,8 98,22 T 202,16 T 265,40 T 300,48" fill="none" stroke="currentColor" stroke-width="2.5"></path>
+</svg>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-outline">
+<span>110 Hz (Grave)</span>
+<span class="font-medium text-on-surface">Variation expressive : Δ142 Hz</span>
+<span>252 Hz (Aigu)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Targeted Remediation Action Plan -->
+<div class="bg-gradient-to-r from-surface-container-lowest via-surface-container-low to-surface-container-lowest rounded-xl p-8 shadow-sm flex flex-col xl:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-5 max-w-2xl">
+<div class="w-14 h-14 rounded-2xl bg-primary text-on-primary flex items-center justify-center shrink-0 shadow-md">
+<span class="material-symbols-outlined text-[32px]">fitness_center</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm uppercase font-bold text-primary tracking-widest">Feedback Service Intelligent</span>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface mt-0.5">Plan d'Action Immédiat : 3 Micro-Exercices C1</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+            Basé sur vos 2 liaisons éludées et vos pauses prolongées, débloquez les modules ciblés d'automatisme articulatoire pour sécuriser la note maximale au DALF.
+          </p>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-3 shrink-0">
+<button class="px-5 py-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-md text-label-md shadow-sm transition-all flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]">quiz</span>
+          Drill phonétique en [t] (3 min)
+        </button>
+<button class="px-5 py-3 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md shadow-md transition-all flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+          Lancer le parcours personnalisé
+        </button>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

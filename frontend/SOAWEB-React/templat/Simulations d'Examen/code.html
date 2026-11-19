@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-tint":"#4f44e2","on-secondary-container":"#586377","on-tertiary-fixed-variant":"#404758","surface-container-lowest":"#ffffff","inverse-on-surface":"#eaf1ff","secondary-fixed":"#d8e3fb","surface-variant":"#d9e3f6","surface-bright":"#f8f9ff","outline-variant":"#c7c4d8","on-surface":"#121c2a","on-primary-fixed":"#100069","surface-container":"#e6eeff","inverse-primary":"#c4c0ff","secondary-container":"#d5e0f8","surface-container-high":"#dee9fc","error-container":"#ffdad6","inverse-surface":"#27313f","surface-container-low":"#eff4ff","tertiary-container":"#6e7487","on-secondary":"#ffffff","background":"#f8f9ff","outline":"#777587","tertiary":"#555c6e","surface-container-highest":"#d9e3f6","primary-container":"#675df9","error":"#ba1a1a","surface":"#f8f9ff","on-error":"#ffffff","on-tertiary-fixed":"#141b2b","tertiary-fixed":"#dce2f7","on-error-container":"#93000a","surface-dim":"#d0dbed","on-surface-variant":"#464555","on-primary":"#ffffff","on-primary-container":"#fffbff","primary-fixed":"#e3dfff","on-secondary-fixed-variant":"#3c475a","on-primary-fixed-variant":"#3622ca","on-tertiary":"#ffffff","on-tertiary-container":"#fefcff","primary":"#4d41df","secondary":"#545f73","on-secondary-fixed":"#111c2d","tertiary-fixed-dim":"#c0c6db","secondary-fixed-dim":"#bcc7de","on-background":"#121c2a","primary-fixed-dim":"#c4c0ff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"2.5rem","margin-sm":"1rem","space-xs":"0.25rem","space-lg":"1.5rem","space-xl":"2.5rem","gutter":"1.5rem","space-sm":"0.5rem","space-md":"1rem","gutter-sm":"1rem"},"fontFamily":{"body-lg":["Inter"],"body-sm":["Inter"],"body-md":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"]},"fontSize":{"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-md":["22px",{"lineHeight":"28px","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-sm":["18px",{"lineHeight":"24px","fontWeight":"600"}],"display-lg-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.015em","fontWeight":"700"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"700"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.015em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="h-20 px-space-lg flex items-center gap-space-sm"><div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary font-display-lg text-headline-sm">O</div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface leading-none">ORALIS</span><span class="font-label-sm text-label-sm text-on-surface-variant tracking-normal">Oral Learning AI</span></div></div><div class="px-space-md py-space-xs"><div class="flex items-center justify-between px-space-sm py-space-xs mb-space-xs"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Espace Formateur</span><span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant">Actif</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary-container font-label-md rounded-lg"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="formateur-dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span>Tableau de bord</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="groupes-classes" href="#"><span class="material-symbols-outlined text-[20px]">groups</span>Mes Groupes &amp; Classes</a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="validation-feedback" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">rate_review</span>Validation &amp; Évaluations</div><span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container">12</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="suivi-apprenants" href="#"><span class="material-symbols-outlined text-[20px]">person_search</span>Suivi Apprenants</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="banques-examens" href="#"><span class="material-symbols-outlined text-[20px]">library_books</span>Banques de Sujets d'Examen</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="certifications-eval" href="#"><span class="material-symbols-outlined text-[20px]">verified</span>Certifications</a></nav></div><div class="px-space-md py-space-xs mt-space-sm"><div class="px-space-sm py-space-xs mb-space-xs flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Modules Apprenant</span><span class="font-label-sm text-label-sm text-outline">CECRL B1-C2</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary-container font-label-md rounded-lg"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="studio-pratique" href="#"><span class="material-symbols-outlined text-[20px]">mic</span>Pratique Orale &amp; Studio</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="feedback-exercices" href="#"><span class="material-symbols-outlined text-[20px]">graphic_eq</span>Feedback &amp; Exercices</a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-2.5 transition-all bg-primary-container text-on-primary-container font-label-md rounded-lg" data-path="simulations-examen" href="#"><span class="material-symbols-outlined text-[20px]">school</span>Simulations d'Examen</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="analyse-cefr" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span>Analyse CECRL</a></nav></div><div class="px-space-md py-space-xs mt-space-sm"><div class="px-space-sm py-space-xs mb-space-xs flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Établissement</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary-container font-label-md rounded-lg"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="institution-overview" href="#"><span class="material-symbols-outlined text-[20px]">account_balance</span>Vue d'ensemble</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="gestion-institution" href="#"><span class="material-symbols-outlined text-[20px]">supervisor_account</span>Gestion Formateurs &amp; Groupes</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="reporting-licences" href="#"><span class="material-symbols-outlined text-[20px]">pie_chart</span>Analytiques &amp; Licences</a></nav></div></div><div class="p-space-md bg-surface-container-low m-space-md rounded-xl flex items-center gap-space-sm"><div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center"><span class="material-symbols-outlined text-primary text-[22px]">record_voice_over</span></div><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface">Studio CECRL Actif</span><span class="font-body-sm text-body-sm text-on-surface-variant">DELF/DALF/TCF</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-20 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-lg"><div class="flex flex-col"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface">ORALIS Platform</span><span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant">v3.4 Production</span></div><span class="font-body-sm text-body-sm text-on-surface-variant">Smart Oral Expression Learning Platform</span></div><div class="hidden xl:flex items-center bg-surface-container-low p-1 rounded-full gap-1"><button class="px-space-md py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" type="button">Apprenant</button><button class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-lowest text-on-surface shadow-[0_1px_3px_0_rgba(17,24,39,0.04)] flex items-center gap-1.5" type="button"><span class="w-2 h-2 rounded-full bg-primary"></span>Formateur</button><button class="px-space-md py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" type="button">Établissement</button></div></div><div class="flex items-center gap-space-md"><div class="flex items-center bg-surface-container-low px-space-sm py-1 rounded-lg"><button class="font-label-sm text-label-sm px-2 py-1 rounded font-bold bg-surface-container-lowest text-primary shadow-[0_1px_2px_rgba(0,0,0,0.05)]" type="button">FR</button><span class="font-body-sm text-body-sm text-outline px-1">|</span><button class="font-label-sm text-label-sm px-2 py-1 text-on-surface-variant hover:text-on-surface transition-colors" type="button">EN</button></div><button class="relative w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container-high transition-colors text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><div class="flex flex-col text-right hidden sm:flex"><span class="font-label-md text-label-md text-on-surface leading-tight">Dr. Sarah Moreau</span><span class="font-label-sm text-label-sm text-on-surface-variant">Examinatrice C2 / Superviseur</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 px-space-xl bg-surface min-h-screen pb-space-xl"><div class="flex flex-col w-full">
+<!-- Top Bar / Breadcrumb & View Toggle -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div class="flex flex-col gap-1 max-w-3xl">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant">Module Certifiant CECRL</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Conditions Officielles d'Épreuve</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Simulations d'Examen Oral en Conditions Réelles</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Mises en situation chronométrées face à un examinateur virtuel IA calibré sur les grilles officielles (DALF, DELF, TCF, Cambridge, IELTS).
+      </p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="flex items-center gap-2 px-space-md py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-all font-label-md text-label-md shadow-sm" id="btn-open-history" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">history_edu</span>
+        Historique de mes épreuves (4 passées)
+      </button>
+<button class="flex items-center gap-1.5 px-space-md py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-all shadow-md" type="button">
+<span class="material-symbols-outlined text-[18px]">rule</span>
+        Grilles de Notation
+      </button>
+</div>
+</div>
+<!-- Certification Tabs -->
+<div class="flex items-center gap-2 overflow-x-auto pb-space-xs mb-space-lg scrollbar-none">
+<button class="exam-filter-btn px-4 py-2 rounded-full font-label-md text-label-md bg-primary text-on-primary transition-all shadow-sm flex items-center gap-1.5" data-filter="all">
+<span>Tous les examens</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container-lowest/20 font-label-sm text-label-sm">18</span>
+</button>
+<button class="exam-filter-btn px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container hover:bg-surface-container-high text-on-surface transition-all flex items-center gap-1.5" data-filter="dalf">
+<span>DALF (C1-C2)</span>
+<span class="px-1.5 py-0.2 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">6</span>
+</button>
+<button class="exam-filter-btn px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container hover:bg-surface-container-high text-on-surface transition-all flex items-center gap-1.5" data-filter="delf">
+<span>DELF (B1-B2)</span>
+<span class="px-1.5 py-0.2 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">5</span>
+</button>
+<button class="exam-filter-btn px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container hover:bg-surface-container-high text-on-surface transition-all flex items-center gap-1.5" data-filter="tcf">
+<span>TCF Canada &amp; TP</span>
+<span class="px-1.5 py-0.2 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">3</span>
+</button>
+<button class="exam-filter-btn px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container hover:bg-surface-container-high text-on-surface transition-all flex items-center gap-1.5" data-filter="cambridge">
+<span>Cambridge C1 Advanced</span>
+<span class="px-1.5 py-0.2 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">2</span>
+</button>
+<button class="exam-filter-btn px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container hover:bg-surface-container-high text-on-surface transition-all flex items-center gap-1.5" data-filter="ielts">
+<span>IELTS Academic</span>
+<span class="px-1.5 py-0.2 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">2</span>
+</button>
+</div>
+<!-- Featured Exam Simulation Hero (Bento Style) -->
+<div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-surface-container-lowest via-surface-container-low to-surface-container-high shadow-md p-space-lg md:p-space-xl mb-space-xl">
+<!-- Subtle Ambient Graphic Accents -->
+<div class="absolute -right-20 -top-24 w-96 h-96 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
+<div class="absolute right-1/3 -bottom-20 w-72 h-72 rounded-full bg-primary-fixed/20 blur-2xl pointer-events-none"></div>
+<div class="relative grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
+<!-- Left Column: Primary Exam Specs -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-3 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm tracking-wide">ÉPREUVE BLANCHE RECOMMANDÉE</span>
+<span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">CECRL C1</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            Examinateur IA Prêt
+          </span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">
+            DALF C1 — Épreuve Orale Individuelle : Synthèse de Documents &amp; Débat Contradictoire
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Format strict France Éducation International. Analyse d'un dossier documentaire écrit, élaboration d'un exposé argumenté et soutenance polémique face à l'examinateur IA.
+          </p>
+</div>
+<!-- Metric & Architecture Highlights -->
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-space-md pt-space-xs">
+<div class="p-3 rounded-lg bg-surface-container-lowest/80 backdrop-blur-sm shadow-sm flex flex-col">
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">timer</span>
+              Durée Totale
+            </span>
+<span class="font-headline-sm text-headline-sm text-on-surface mt-1">45 min</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">30m prep + 15m oral</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-lowest/80 backdrop-blur-sm shadow-sm flex flex-col">
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">psychology</span>
+              Niveau Visé
+            </span>
+<span class="font-headline-sm text-headline-sm text-on-surface mt-1">C1 Autonome</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Grille FEI officielle</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-lowest/80 backdrop-blur-sm shadow-sm flex flex-col col-span-2 sm:col-span-1">
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">speed</span>
+              Indice Réussite
+            </span>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface">88%</span>
+<span class="font-label-sm text-label-sm text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">Fort</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Basé sur vos 4 oraux</span>
+</div>
+</div>
+<!-- Action Row -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md pt-2">
+<button class="group relative px-space-lg py-3.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3 overflow-hidden" id="cta-start-modal" type="button">
+<span class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">headset_mic</span>
+<span>Démarrer la simulation (Salle d'Examen)</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<button class="px-space-md py-3.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md transition-all shadow-sm flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]">description</span>
+            Consulter le dossier témoin
+          </button>
+</div>
+</div>
+<!-- Right Column: Visual Stage Monitor & Dynamic Breakdown -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Jury IA : Pr. Valérie Lambert</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Spécialiste Épreuves DALF C1 / C2</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-mono">ID: JURY-994</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<span>Structure de l'oral</span>
+<span class="font-medium text-on-surface">15 minutes effectives</span>
+</div>
+<!-- Progress Multi-bar -->
+<div class="w-full h-3 rounded-full bg-surface-container-highest flex overflow-hidden">
+<div class="h-full bg-primary" style="width: 60%;" title="Exposé continu : 9 min"></div>
+<div class="h-full bg-primary-container" style="width: 40%;" title="Entretien contradictoire : 6 min"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-outline pt-0.5">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary"></span>Exposé (8-10 min)</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary-container"></span>Débat &amp; Controverse (5-7 min)</span>
+</div>
+</div>
+<!-- Live Calibration Parameters -->
+<div class="flex flex-col gap-2">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Critères prioritaires de l'évaluation</span>
+<div class="grid grid-cols-2 gap-2">
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container">
+<span class="material-symbols-outlined text-primary text-[18px]">schema</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Cohérence Logique</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Connecteurs &amp; plan</span>
+</div>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container">
+<span class="material-symbols-outlined text-primary text-[18px]">record_voice_over</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Aisance Phonique</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Débit, prosodie, accent</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive 3-Phase Simulation Walkthrough -->
+<div class="flex flex-col gap-space-md mb-space-xl">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Protocole d'Examen en 3 Phases Interactives</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Le moteur ORALIS applique le strict règlement anti-triche et les contraintes temporelles des commissions officielles.
+        </p>
+</div>
+<span class="font-label-sm text-label-sm text-outline px-3 py-1 rounded-full bg-surface-container self-start sm:self-auto">Chronométrage Inviolable</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Phase 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-display-lg text-headline-lg text-primary font-bold opacity-30 leading-none">01</span>
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm font-semibold">Tirage au Sort</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Corpus &amp; Problématique</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Sélection algorithmique d'un dossier officiel constitué de 2 articles de presse généraliste ou spécialisée (1 000 à 1 200 mots).
+          </p>
+<div class="flex flex-wrap gap-1.5 pt-2">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Bioéthique</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Économie circulaire</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">IA &amp; Droit</span>
+</div>
+</div>
+<div class="pt-space-md mt-space-md flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-primary">casino</span>
+<span>Double sujet au choix en mode DALF</span>
+</div>
+</div>
+<!-- Phase 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-display-lg text-headline-lg text-primary font-bold opacity-30 leading-none">02</span>
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">30:00 Rebours</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Loge de Préparation</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Écran scindé avec le corpus documentaire, un bloc-notes structuré (thèse, antithèse, synthèse) et assistance lexicale désactivée.
+          </p>
+<div class="p-2.5 rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">lock_clock</span>
+<span class="font-label-sm text-label-sm text-on-surface">Minuteur Inaltérable</span>
+</div>
+<span class="font-mono font-headline-sm text-headline-sm text-error">30:00</span>
+</div>
+</div>
+<div class="pt-space-md mt-space-md flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-primary">edit_note</span>
+<span>Brouillon sauvegardé et accessible à l'oral</span>
+</div>
+</div>
+<!-- Phase 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-display-lg text-headline-lg text-primary font-bold opacity-30 leading-none">03</span>
+<span class="px-2 py-0.5 rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm font-semibold">En Direct</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Face-à-Face &amp; Débat IA</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Capture audio continue haute fidélité. Après votre exposé, l'examinateur IA prend la parole pour tester votre réactivité et vos arguments.
+          </p>
+<div class="p-2.5 rounded-lg bg-surface-container-high flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">record_voice_over</span>
+<span class="font-body-sm text-body-sm italic text-on-surface truncate">« Pourquoi réfutez-vous le coût social ? »</span>
+</div>
+</div>
+<div class="pt-space-md mt-space-md flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-emerald-600">verified</span>
+<span>Transcription et scoring instantané</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Catalog of Available Exam Subjects -->
+<div class="flex flex-col gap-space-md mb-space-xl">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Catalogue de Sujets Disponibles</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Banque synchronisée avec le microservice <span class="font-mono text-primary font-label-sm">exam-content-service v2.8</span>
+</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[18px] text-outline">search</span>
+<input class="pl-9 pr-3 py-2 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-outline text-body-sm font-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-sm w-48 sm:w-64" id="search-subjects" placeholder="Rechercher par mot-clé..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Subject Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md" id="subjects-container">
+<!-- Subject Card 1 -->
+<div class="subject-card flex flex-col justify-between p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all gap-space-md" data-category="dalf">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-mono font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface">#C1-84</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-bold">C1 • DALF</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface line-clamp-2">
+            La gratuité des transports publics face aux contraintes budgétaires
+          </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">
+            Analyse comparative : Rennes, Dunkerque et Montpellier. Synthétisez les impacts écologiques, la justice sociale et les arbitrages fiscaux.
+          </p>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between text-body-sm font-body-sm text-outline pt-2">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">translate</span> Français</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> 20 min oral</span>
+</div>
+<button class="btn-launch-exam w-full py-2.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md transition-all flex items-center justify-center gap-1.5" data-code="C1-84" data-title="La gratuité des transports publics" type="button">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+            Lancer l'Épreuve
+          </button>
+</div>
+</div>
+<!-- Subject Card 2 -->
+<div class="subject-card flex flex-col justify-between p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all gap-space-md" data-category="dalf">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-mono font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface">#C1-92</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-bold">C1 • DALF</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface line-clamp-2">
+            Télétravail et désocialisation : nouvelle aliénation ou émancipation ?
+          </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">
+            Exploration sociologique de l'effacement de la frontière pro/perso, le sentiment d'isolement et les gains d'autonomie individuelle.
+          </p>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between text-body-sm font-body-sm text-outline pt-2">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">translate</span> Français</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> 20 min oral</span>
+</div>
+<button class="btn-launch-exam w-full py-2.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md transition-all flex items-center justify-center gap-1.5" data-code="C1-92" data-title="Télétravail et désocialisation" type="button">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+            Lancer l'Épreuve
+          </button>
+</div>
+</div>
+<!-- Subject Card 3 -->
+<div class="subject-card flex flex-col justify-between p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all gap-space-md" data-category="ielts">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-mono font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface">#IELTS-09</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-bold">Band 8.0 • IELTS</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface line-clamp-2">
+            Urban Architecture and Sustainable Living Spaces
+          </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">
+            Speaking Part 2 &amp; 3. Describe an eco-friendly building and discuss government intervention on low-carbon urban zoning.
+          </p>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between text-body-sm font-body-sm text-outline pt-2">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">translate</span> English</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> 15 min oral</span>
+</div>
+<button class="btn-launch-exam w-full py-2.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md transition-all flex items-center justify-center gap-1.5" data-code="IELTS-09" data-title="Urban Architecture and Living" type="button">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+            Lancer l'Épreuve
+          </button>
+</div>
+</div>
+<!-- Subject Card 4 -->
+<div class="subject-card flex flex-col justify-between p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all gap-space-md" data-category="delf">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-mono font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface">#B2-14</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-bold">B2 • DELF</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface line-clamp-2">
+            Faut-il interdire les écrans dans les écoles primaires ?
+          </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">
+            Monologue suivi : Défense d'un point de vue personnel argumenté et échange interactif avec le jury sur les méthodes pédagogiques alternatives.
+          </p>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between text-body-sm font-body-sm text-outline pt-2">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">translate</span> Français</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> 15 min oral</span>
+</div>
+<button class="btn-launch-exam w-full py-2.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface font-label-md text-label-md transition-all flex items-center justify-center gap-1.5" data-code="B2-14" data-title="Les écrans à l'école primaire" type="button">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+            Lancer l'Épreuve
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Past Simulations History Table & Performance Summary -->
+<div class="flex flex-col gap-space-md p-space-lg rounded-xl bg-surface-container-lowest shadow-sm" id="simulations-history">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">history</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Historique &amp; Grilles Officielles des Simulations Passées</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Archives auditées avec feedback phonétique mot à mot et PV d'évaluation téléchargeable.
+        </p>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-all flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">filter_list</span>
+          Filtrer
+        </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-all flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">download</span>
+          Exporter tout (ZIP)
+        </button>
+</div>
+</div>
+<!-- Data Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="text-outline font-label-sm text-label-sm uppercase tracking-wider bg-surface-container-low/50">
+<th class="py-3 px-4 rounded-l-lg">Date &amp; Épreuve</th>
+<th class="py-3 px-4">Certification</th>
+<th class="py-3 px-4">Sujet Traité</th>
+<th class="py-3 px-4">Score Obtenu</th>
+<th class="py-3 px-4">Verdict / Statut</th>
+<th class="py-3 px-4 text-right rounded-r-lg">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">14 Avril 2024</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Session #SIM-9402</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-bold">DALF C1</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col max-w-xs">
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">Intelligence Artificielle et Droit d'auteur</span>
+<span class="font-body-sm text-body-sm text-outline">Exposé 9m12s • Débat 5m40s</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">21.5</span>
+<span class="font-body-sm text-body-sm text-outline">/ 25</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-label-sm text-label-sm font-semibold flex items-center gap-1 w-max">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                Admis (Seuil: 12.5)
+              </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="btn-view-report px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface transition-all font-label-sm text-label-sm inline-flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+                PV d'Examen
+              </button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">02 Mars 2024</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Session #SIM-8821</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-bold">IELTS Academic</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col max-w-xs">
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">Renewable Energy and Remote Communities</span>
+<span class="font-body-sm text-body-sm text-outline">Speaking Part 1, 2 &amp; 3</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">Band 7.5</span>
+<span class="font-body-sm text-body-sm text-outline">/ 9.0</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-label-sm text-label-sm font-semibold flex items-center gap-1 w-max">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                Objectif Atteint (C1)
+              </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="btn-view-report px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface transition-all font-label-sm text-label-sm inline-flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+                PV d'Examen
+              </button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">18 Février 2024</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Session #SIM-8104</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-bold">TCF Canada</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col max-w-xs">
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">Tâche 3 : Échange spontané sans préparation</span>
+<span class="font-body-sm text-body-sm text-outline">Épreuve directe 4m30s</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">16 / 20</span>
+<span class="font-body-sm text-body-sm text-outline">Niveau C1</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-label-sm text-label-sm font-semibold flex items-center gap-1 w-max">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                NCLC 9 Validé
+              </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="btn-view-report px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface transition-all font-label-sm text-label-sm inline-flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+                PV d'Examen
+              </button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">27 Janvier 2024</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Session #SIM-7490</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-bold">DALF C1</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col max-w-xs">
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">La décroissance économique : utopie ou nécessité ?</span>
+<span class="font-body-sm text-body-sm text-outline">Exposé 7m45s • Débat 6m15s</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-error font-bold">11.0</span>
+<span class="font-body-sm text-body-sm text-outline">/ 25</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-1 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold flex items-center gap-1 w-max">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                Non Admis (Seuil: 12.5)
+              </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="btn-view-report px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface transition-all font-label-sm text-label-sm inline-flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+                PV d'Examen
+              </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Interactive Modal: Exam Launch Room / Prep Confirmation -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-sm hidden items-center justify-center p-4" id="exam-modal">
+<div class="bg-surface-container-lowest rounded-2xl max-w-2xl w-full p-space-lg md:p-space-xl shadow-2xl flex flex-col gap-space-md animate-in fade-in zoom-in-95 duration-200">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">headset</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">SAS DE VÉRIFICATION PRÉ-ÉPREUVE</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface" id="modal-exam-title">DALF C1 — Épreuve Orale Individuelle</h3>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" id="modal-close" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col gap-3">
+<span class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">verified_user</span>
+          Conditions officielles de passation
+        </span>
+<ul class="text-body-sm font-body-sm text-on-surface-variant flex flex-col gap-2">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-emerald-600 text-[18px] shrink-0">check_circle</span>
+<span>Microphone calibré &amp; réduction de bruit active opérationnelle.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-emerald-600 text-[18px] shrink-0">check_circle</span>
+<span>Accès aux synthèses et traducteurs en ligne strictement bloqué durant la préparation (30 min).</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-emerald-600 text-[18px] shrink-0">check_circle</span>
+<span>Le chronomètre ne peut être mis en pause : toute interruption invalide le PV d'examen.</span>
+</li>
+</ul>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">mic</span>
+<span class="font-label-md text-label-md text-on-surface">Test Micro d'ambiance</span>
+</div>
+<div class="flex items-center gap-1">
+<div class="w-1.5 h-4 bg-emerald-500 rounded-full"></div>
+<div class="w-1.5 h-6 bg-emerald-500 rounded-full"></div>
+<div class="w-1.5 h-3 bg-emerald-500 rounded-full"></div>
+<div class="w-1.5 h-5 bg-emerald-500 rounded-full"></div>
+<span class="font-label-sm text-label-sm text-emerald-600 font-bold ml-1">Optimal (-18 dB)</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-center justify-end gap-space-sm pt-2">
+<button class="w-full sm:w-auto px-space-md py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all" id="modal-cancel" type="button">
+          Annuler &amp; Revenir
+        </button>
+<button class="w-full sm:w-auto px-space-lg py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-all shadow-md flex items-center justify-center gap-2" id="modal-confirm" type="button">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+          Entrer dans la Salle d'Examen
+        </button>
+</div>
+</div>
+</div>
+<!-- Notification Toast Element -->
+<div class="fixed bottom-6 right-6 z-50 px-4 py-3 rounded-xl bg-inverse-surface text-inverse-on-surface shadow-xl flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none" id="toast-message">
+<span class="material-symbols-outlined text-primary-fixed text-[20px]">info</span>
+<span class="font-body-sm text-body-sm" id="toast-text">Action effectuée</span>
+</div>
+</div>
+<script>
+  (function () {
+    // Tab Filter Logic
+    const filterButtons = document.querySelectorAll('.exam-filter-btn');
+    const subjectCards = document.querySelectorAll('.subject-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        // Toggle active button styling
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-primary', 'text-on-primary');
+          b.classList.add('bg-surface-container', 'text-on-surface');
+        });
+        btn.classList.remove('bg-surface-container', 'text-on-surface');
+        btn.classList.add('bg-primary', 'text-on-primary');
+
+        // Filter cards
+        subjectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Subject Search Input
+    const searchInput = document.getElementById('search-subjects');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        subjectCards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          if (text.includes(query)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    }
+
+    // Modal Control
+    const modal = document.getElementById('exam-modal');
+    const ctaStartModal = document.getElementById('cta-start-modal');
+    const modalClose = document.getElementById('modal-close');
+    const modalCancel = document.getElementById('modal-cancel');
+    const modalConfirm = document.getElementById('modal-confirm');
+    const modalTitle = document.getElementById('modal-exam-title');
+
+    function openModal(title) {
+      if (modalTitle && title) {
+        modalTitle.textContent = title;
+      }
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    if (ctaStartModal) {
+      ctaStartModal.addEventListener('click', () => {
+        openModal("DALF C1 — Épreuve Orale Individuelle : Synthèse de documents & Débat");
+      });
+    }
+
+    document.querySelectorAll('.btn-launch-exam').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const title = btn.getAttribute('data-title') || "Simulation d'examen";
+        openModal(title);
+      });
+    });
+
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+    if (modalCancel) modalCancel.addEventListener('click', closeModal);
+
+    // Toast Notification helper
+    function showToast(message) {
+      const toast = document.getElementById('toast-message');
+      const text = document.getElementById('toast-text');
+      if (toast && text) {
+        text.textContent = message;
+        toast.classList.remove('translate-y-24', 'opacity-0');
+        toast.classList.add('translate-y-0', 'opacity-100');
+        setTimeout(() => {
+          toast.classList.remove('translate-y-0', 'opacity-100');
+          toast.classList.add('translate-y-24', 'opacity-0');
+        }, 3500);
+      }
+    }
+
+    if (modalConfirm) {
+      modalConfirm.addEventListener('click', () => {
+        closeModal();
+        showToast("Chargement de la loge d'examen et synchronisation du jury IA...");
+      });
+    }
+
+    // Report viewing buttons
+    document.querySelectorAll('.btn-view-report').forEach(btn => {
+      btn.addEventListener('click', () => {
+        showToast("Génération du rapport d'évaluation officiel DALF/CECRL (PDF)...");
+      });
+    });
+
+    // History anchor smooth scroll
+    const btnHistory = document.getElementById('btn-open-history');
+    if (btnHistory) {
+      btnHistory.addEventListener('click', () => {
+        const target = document.getElementById('simulations-history');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }
+  })();
+</script></main></div></body></html>

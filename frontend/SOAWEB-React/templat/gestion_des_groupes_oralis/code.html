@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-tint":"#4f44e2","on-secondary-container":"#586377","on-tertiary-fixed-variant":"#404758","surface-container-lowest":"#ffffff","inverse-on-surface":"#eaf1ff","secondary-fixed":"#d8e3fb","surface-variant":"#d9e3f6","surface-bright":"#f8f9ff","outline-variant":"#c7c4d8","on-surface":"#121c2a","on-primary-fixed":"#100069","surface-container":"#e6eeff","inverse-primary":"#c4c0ff","secondary-container":"#d5e0f8","surface-container-high":"#dee9fc","error-container":"#ffdad6","inverse-surface":"#27313f","surface-container-low":"#eff4ff","tertiary-container":"#6e7487","on-secondary":"#ffffff","background":"#f8f9ff","outline":"#777587","tertiary":"#555c6e","surface-container-highest":"#d9e3f6","primary-container":"#675df9","error":"#ba1a1a","surface":"#f8f9ff","on-error":"#ffffff","on-tertiary-fixed":"#141b2b","tertiary-fixed":"#dce2f7","on-error-container":"#93000a","surface-dim":"#d0dbed","on-surface-variant":"#464555","on-primary":"#ffffff","on-primary-container":"#fffbff","primary-fixed":"#e3dfff","on-secondary-fixed-variant":"#3c475a","on-primary-fixed-variant":"#3622ca","on-tertiary":"#ffffff","on-tertiary-container":"#fefcff","primary":"#4d41df","secondary":"#545f73","on-secondary-fixed":"#111c2d","tertiary-fixed-dim":"#c0c6db","secondary-fixed-dim":"#bcc7de","on-background":"#121c2a","primary-fixed-dim":"#c4c0ff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"2.5rem","margin-sm":"1rem","space-xs":"0.25rem","space-lg":"1.5rem","space-xl":"2.5rem","gutter":"1.5rem","space-sm":"0.5rem","space-md":"1rem","gutter-sm":"1rem"},"fontFamily":{"body-lg":["Inter"],"body-sm":["Inter"],"body-md":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"]},"fontSize":{"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-md":["22px",{"lineHeight":"28px","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-sm":["18px",{"lineHeight":"24px","fontWeight":"600"}],"display-lg-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.015em","fontWeight":"700"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"700"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.015em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="h-20 px-space-lg flex items-center gap-space-sm"><div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary font-display-lg text-headline-sm">O</div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface leading-none">ORALIS</span><span class="font-label-sm text-label-sm text-on-surface-variant tracking-normal">Oral Learning AI</span></div></div><div class="px-space-md py-space-xs"><div class="flex items-center justify-between px-space-sm py-space-xs mb-space-xs"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Espace Formateur</span><span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant">Actif</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary-container font-label-md rounded-lg"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="formateur-dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span>Tableau de bord</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="groupes-classes" href="#"><span class="material-symbols-outlined text-[20px]">groups</span>Mes Groupes &amp; Classes</a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="validation-feedback" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">rate_review</span>Validation &amp; Évaluations</div><span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container">12</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="suivi-apprenants" href="#"><span class="material-symbols-outlined text-[20px]">person_search</span>Suivi Apprenants</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="banques-examens" href="#"><span class="material-symbols-outlined text-[20px]">library_books</span>Banques de Sujets d'Examen</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="certifications-eval" href="#"><span class="material-symbols-outlined text-[20px]">verified</span>Certifications</a></nav></div><div class="px-space-md py-space-xs mt-space-sm"><div class="px-space-sm py-space-xs mb-space-xs flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Modules Apprenant</span><span class="font-label-sm text-label-sm text-outline">CECRL B1-C2</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary-container font-label-md rounded-lg"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="studio-pratique" href="#"><span class="material-symbols-outlined text-[20px]">mic</span>Pratique Orale &amp; Studio</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="feedback-exercices" href="#"><span class="material-symbols-outlined text-[20px]">graphic_eq</span>Feedback &amp; Exercices</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="simulations-examen" href="#"><span class="material-symbols-outlined text-[20px]">school</span>Simulations d'Examen</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="analyse-cefr" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span>Analyse CECRL</a></nav></div><div class="px-space-md py-space-xs mt-space-sm"><div class="px-space-sm py-space-xs mb-space-xs flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Établissement</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary-container font-label-md rounded-lg"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="institution-overview" href="#"><span class="material-symbols-outlined text-[20px]">account_balance</span>Vue d'ensemble</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="gestion-institution" href="#"><span class="material-symbols-outlined text-[20px]">supervisor_account</span>Gestion Formateurs &amp; Groupes</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="reporting-licences" href="#"><span class="material-symbols-outlined text-[20px]">pie_chart</span>Analytiques &amp; Licences</a></nav></div></div><div class="p-space-md bg-surface-container-low m-space-md rounded-xl flex items-center gap-space-sm"><div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center"><span class="material-symbols-outlined text-primary text-[22px]">record_voice_over</span></div><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface">Studio CECRL Actif</span><span class="font-body-sm text-body-sm text-on-surface-variant">DELF/DALF/TCF</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-20 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-lg"><div class="flex flex-col"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface">ORALIS Platform</span><span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant">v3.4 Production</span></div><span class="font-body-sm text-body-sm text-on-surface-variant">Smart Oral Expression Learning Platform</span></div><div class="hidden xl:flex items-center bg-surface-container-low p-1 rounded-full gap-1"><button class="px-space-md py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" type="button">Apprenant</button><button class="px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-lowest text-on-surface shadow-[0_1px_3px_0_rgba(17,24,39,0.04)] flex items-center gap-1.5" type="button"><span class="w-2 h-2 rounded-full bg-primary"></span>Formateur</button><button class="px-space-md py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" type="button">Établissement</button></div></div><div class="flex items-center gap-space-md"><div class="flex items-center bg-surface-container-low px-space-sm py-1 rounded-lg"><button class="font-label-sm text-label-sm px-2 py-1 rounded font-bold bg-surface-container-lowest text-primary shadow-[0_1px_2px_rgba(0,0,0,0.05)]" type="button">FR</button><span class="font-body-sm text-body-sm text-outline px-1">|</span><button class="font-label-sm text-label-sm px-2 py-1 text-on-surface-variant hover:text-on-surface transition-colors" type="button">EN</button></div><button class="relative w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container-high transition-colors text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><div class="flex flex-col text-right hidden sm:flex"><span class="font-label-md text-label-md text-on-surface leading-tight">Dr. Sarah Moreau</span><span class="font-label-sm text-label-sm text-on-surface-variant">Examinatrice C2 / Superviseur</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 px-space-xl bg-surface min-h-screen pb-space-xl"><div class="flex flex-col w-full">
+<!-- Interactive Client Behavior Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Synchronize Sidebar Active Link to "Mes Groupes & Classes"
+      const sidebarLinks = document.querySelectorAll('aside nav a');
+      sidebarLinks.forEach(link => {
+        if (link.getAttribute('data-path') === 'groupes-classes') {
+          link.className = 'flex items-center gap-space-sm px-space-md py-2.5 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md shadow-sm transition-all';
+        } else {
+          link.classList.remove('bg-primary-container', 'text-on-primary-container');
+        }
+      });
+
+      // Quick filter tabs behavior
+      const filterPills = document.querySelectorAll('.group-filter-pill');
+      filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          filterPills.forEach(p => {
+            p.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+            p.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+          });
+          pill.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+          pill.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+        });
+      });
+
+      // Interactive Group Row Selection
+      const groupRows = document.querySelectorAll('.group-table-row');
+      groupRows.forEach(row => {
+        row.addEventListener('click', () => {
+          groupRows.forEach(r => r.classList.remove('bg-primary-fixed/20'));
+          row.classList.add('bg-primary-fixed/20');
+        });
+      });
+    });
+
+    function toggleSlidePanel() {
+      const panel = document.getElementById('slideout-panel');
+      if (panel.classList.contains('translate-x-full')) {
+        panel.classList.remove('translate-x-full');
+      } else {
+        panel.classList.add('translate-x-full');
+      }
+    }
+  </script>
+<!-- Top Breadcrumb & Page Header -->
+<section class="flex flex-col gap-space-md mb-space-xl">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="font-label-md text-label-md text-outline">Formateur</span>
+<span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span>
+<span class="font-label-md text-label-md text-primary font-semibold">Mes Groupes &amp; Classes</span>
+</div>
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
+<div class="flex flex-col max-w-2xl">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Gestion des Groupes &amp; Suivi des Cohortes</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Supervisez vos 4 groupes d'entraînement oral, paramétrez les grilles de notation CECRL et suivez la progression comparative des apprenants.</p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="flex items-center gap-2 px-space-md py-2.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-all shadow-sm font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">upload_file</span>
+<span>Importer (CSV)</span>
+</button>
+<button class="flex items-center gap-2 px-space-md py-2.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-all shadow-sm font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px] text-outline">picture_as_pdf</span>
+<span>Rapport Promo (PDF)</span>
+</button>
+<button class="flex items-center gap-2 px-space-md py-2.5 rounded-lg bg-primary text-on-primary hover:bg-surface-tint shadow-md hover:shadow-lg transition-all font-label-md text-label-md" onclick="toggleSlidePanel()" type="button">
+<span class="material-symbols-outlined text-[20px]">group_add</span>
+<span>Créer un nouveau groupe</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Section 1 : KPI Synthétiques -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-space-md mb-space-xl">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider">Groupes Actifs</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">groups_3</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="font-display-lg text-display-lg text-on-surface leading-none">4</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Promotions sous supervision</p>
+</div>
+<div class="mt-3 flex items-center gap-1.5 text-on-surface font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span>100% actives ce semestre</span>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider">Effectif Global</span>
+<div class="w-8 h-8 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-[18px]">record_voice_over</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="font-display-lg text-display-lg text-on-surface leading-none">64</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Apprenants encadrés</p>
+</div>
+<div class="mt-3 flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">school</span>
+<span>Moyenne 16 / cohorte</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider">Assiduité Studio</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="font-display-lg text-display-lg text-on-surface leading-none">88.4%</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Présence hebdomadaire</p>
+</div>
+<div class="mt-3 flex items-center gap-1.5">
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-1.5 rounded-full" style="width: 88.4%"></div>
+</div>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider">Score Global</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">auto_graph</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex items-baseline gap-1">
+<span class="font-display-lg text-display-lg text-on-surface leading-none">81.4</span>
+<span class="font-body-sm text-body-sm text-outline">/100</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Performance CECRL pondérée</p>
+</div>
+<div class="mt-3 flex items-center gap-1 font-label-sm text-label-sm text-primary">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+3.8 pts ce mois</span>
+</div>
+</div>
+<!-- KPI 5 -->
+<div class="bg-error-container/40 p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-error uppercase tracking-wider">Alertes Actives</span>
+<div class="w-8 h-8 rounded-lg bg-error text-on-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="font-display-lg text-display-lg text-on-error-container leading-none">3</div>
+<p class="font-body-sm text-body-sm text-on-error-container mt-1">Apprenants en remédiation</p>
+</div>
+<div class="mt-3 flex items-center gap-1 text-on-error-container font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">priority_high</span>
+<span>Intervention requise</span>
+</div>
+</div>
+</section>
+<!-- Section 2 : Barre d'Outils et Filtres Avancés -->
+<section class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm mb-space-lg flex flex-col gap-space-md">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<!-- Search Input -->
+<div class="relative flex-1 max-w-lg">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-full bg-surface-container-low text-on-surface placeholder:text-outline pl-10 pr-4 py-2.5 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/40 font-body-md text-body-md transition-all" placeholder="Rechercher par groupe, niveau CECRL, code cohorte..." type="text"/>
+</div>
+<!-- Actions & View Selectors -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-lg">
+<button class="group-filter-pill px-3 py-1.5 rounded-md font-label-md text-label-md bg-primary text-on-primary shadow-sm transition-all" type="button">Tous (4)</button>
+<button class="group-filter-pill px-3 py-1.5 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" type="button">DALF C1 (2)</button>
+<button class="group-filter-pill px-3 py-1.5 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" type="button">DELF B2 (1)</button>
+<button class="group-filter-pill px-3 py-1.5 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" type="button">IELTS (1)</button>
+</div>
+<div class="h-6 w-[1px] bg-surface-container-highest hidden sm:block"></div>
+<!-- Status Filter Dropdown -->
+<div class="relative">
+<select class="bg-surface-container-low text-on-surface font-label-md text-label-md px-3 py-2 rounded-lg appearance-none pr-8 focus:outline-none focus:ring-2 focus:ring-primary/30 cursor-pointer">
+<option>Statut : Tous actifs</option>
+<option>En phase d'examen</option>
+<option>Archivés</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span>
+</div>
+<!-- Sort Filter Dropdown -->
+<div class="relative">
+<select class="bg-surface-container-low text-on-surface font-label-md text-label-md px-3 py-2 rounded-lg appearance-none pr-8 focus:outline-none focus:ring-2 focus:ring-primary/30 cursor-pointer">
+<option>Trier par performance</option>
+<option>Trier par effectif</option>
+<option>Trier par date d'examen</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">sort</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3 : Tableau Interactif des Cohortes -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden mb-space-xl">
+<div class="px-space-lg py-space-md bg-surface-container-lowest flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Cohortes &amp; Grilles Évaluées</h2>
+<span class="font-label-sm text-label-sm px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant">4 actives</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Cliquez sur une ligne pour charger le diagnostic détaillé</span>
+</div>
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md">
+<th class="py-3 px-space-lg">Groupe &amp; Cohorte</th>
+<th class="py-3 px-space-md">Niveau &amp; Langue</th>
+<th class="py-3 px-space-md">Effectif</th>
+<th class="py-3 px-space-md">Assiduité Vocale</th>
+<th class="py-3 px-space-md">Score Moyen</th>
+<th class="py-3 px-space-md">Statut &amp; Échéance</th>
+<th class="py-3 px-space-lg text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-on-surface">
+<!-- Groupe 1 (Sélectionné par défaut) -->
+<tr class="group-table-row bg-primary-fixed/20 hover:bg-surface-container-high transition-colors cursor-pointer">
+<td class="py-4 px-space-lg">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center font-display-lg text-headline-sm shadow-sm">
+                  C1
+                </div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">DALF C1 Élite — UFR Lettres &amp; Langues</span>
+<span class="font-body-sm text-body-sm text-outline">Cohorte #C1-PARIS-24 • Sorbonne Master FLE</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-primary text-on-primary font-bold">C1</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Français FLE</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface">18 apprenants</span>
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> 100% actifs
+                </span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col gap-1 w-32">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="font-semibold text-on-surface">92%</span>
+<span class="text-outline">~2.8h/sem</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-1.5 rounded-full" style="width: 92%"></div>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">84.6</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-primary font-bold">+4.2%</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-semibold w-max">Actif</span>
+<span class="font-body-sm text-body-sm text-outline mt-0.5">Examen blanc : 18 Mai</span>
+</div>
+</td>
+<td class="py-4 px-space-lg text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:bg-surface-tint transition-all" type="button">
+                  Consulter
+                </button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Groupe 2 -->
+<tr class="group-table-row hover:bg-surface-container-high transition-colors cursor-pointer">
+<td class="py-4 px-space-lg">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-secondary text-on-secondary flex items-center justify-center font-display-lg text-headline-sm shadow-sm">
+                  IE
+                </div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Préparation IELTS Academic 7.5+</span>
+<span class="font-body-sm text-body-sm text-outline">Cohorte #IELTS-24B • Section Internationale</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-secondary text-on-secondary font-bold">C1/7.5</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Anglais Int.</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface">16 apprenants</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">15 actifs réguliers</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col gap-1 w-32">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="font-semibold text-on-surface">85%</span>
+<span class="text-outline">~2.2h/sem</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary h-1.5 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">79.2</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-bold">+1.8%</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-semibold w-max">Entraînement</span>
+<span class="font-body-sm text-body-sm text-outline mt-0.5">Speaking Mock: 24 Mai</span>
+</div>
+</td>
+<td class="py-4 px-space-lg text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-all" type="button">
+                  Consulter
+                </button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Groupe 3 -->
+<tr class="group-table-row hover:bg-surface-container-high transition-colors cursor-pointer">
+<td class="py-4 px-space-lg">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest text-on-surface flex items-center justify-center font-display-lg text-headline-sm shadow-sm">
+                  B2
+                </div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">DELF B2 Intensif — Passerelle Master</span>
+<span class="font-body-sm text-body-sm text-outline">Cohorte #B2-INT-10 • Mobilité Campus France</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface font-bold">B2</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Français FLE</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface">15 apprenants</span>
+<span class="font-label-sm text-label-sm text-error font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> 2 alertes décrochage
+                </span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col gap-1 w-32">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="font-semibold text-on-surface">78%</span>
+<span class="text-outline">~1.9h/sem</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-outline h-1.5 rounded-full" style="width: 78%"></div>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">76.5</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-bold">-0.5%</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-semibold w-max">Suivi Spécial</span>
+<span class="font-body-sm text-body-sm text-outline mt-0.5">Soutien phonétique</span>
+</div>
+</td>
+<td class="py-4 px-space-lg text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-all" type="button">
+                  Consulter
+                </button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Groupe 4 -->
+<tr class="group-table-row hover:bg-surface-container-high transition-colors cursor-pointer">
+<td class="py-4 px-space-lg">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center font-display-lg text-headline-sm shadow-sm">
+                  C2
+                </div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">DALF C2 Perfectionnement Rhétorique</span>
+<span class="font-body-sm text-body-sm text-outline">Cohorte #C2-EXP-03 • Avocats &amp; Diplomates</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-primary text-on-primary font-bold">C2</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Français FLE</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface">15 apprenants</span>
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> 100% actifs
+                </span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col gap-1 w-32">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="font-semibold text-on-surface">94%</span>
+<span class="text-outline">~3.5h/sem</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-1.5 rounded-full" style="width: 94%"></div>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">85.3</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-primary font-bold">+3.1%</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-semibold w-max">Avancé</span>
+<span class="font-body-sm text-body-sm text-outline mt-0.5">Débat contradictoire : 12 Juin</span>
+</div>
+</td>
+<td class="py-4 px-space-lg text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-all" type="button">
+                  Consulter
+                </button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Section 4 : Volet de Détail du Groupe Sélectionné ("DALF C1 Élite") -->
+<section class="grid grid-cols-1 xl:grid-cols-3 gap-space-lg">
+<!-- Left 2 Cols: Cohort Learners Detailed Breakdown -->
+<div class="xl:col-span-2 flex flex-col gap-space-md">
+<!-- Cohort Header Card -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md relative overflow-hidden">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-2xl bg-primary text-on-primary flex items-center justify-center font-display-lg text-headline-lg shadow-md">
+            C1
+          </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">DALF C1 Élite — Sorbonne Université</h3>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-bold">Groupe focal</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">18 étudiants inscrits • Grille d'évaluation : Épreuve de Production Orale DALF C1 (25 pts)</p>
+</div>
+</div>
+<div class="flex items-center gap-2 self-stretch sm:self-auto justify-end">
+<button class="px-space-md py-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[18px]">assignment</span>
+<span>Assigner Sujet</span>
+</button>
+<button class="px-space-md py-2 rounded-lg bg-primary text-on-primary hover:bg-surface-tint font-label-md text-label-md transition-colors flex items-center gap-1.5 shadow-sm" onclick="toggleSlidePanel()" type="button">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+<span>Ajouter Apprenant</span>
+</button>
+</div>
+</div>
+<!-- Learners Listing Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="px-space-lg py-space-md flex items-center justify-between">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Apprenants de la promotion</h4>
+<span class="font-body-sm text-body-sm text-outline">4 récents sur 18</span>
+</div>
+<div class="divide-y divide-surface-container-low">
+<!-- Learner 1 -->
+<div class="p-space-md px-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md hover:bg-surface-container-low/50 transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Portrait professionnel studieux d'une jeune femme souriante dans une bibliothèque universitaire avec lumière douce naturelle style edtech moderne" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCC46nw_0Cqv7V-CYahnzI4n0J0vHiJM_IjdLVdVQxQPao73tIc5GuYGtFJ7iPvj86rTIwTVNFy7wP-XddMP0AqKUooy37-m7s4OHxGVO50_Ju2aGLuIy6wvFjwOyWG9rGAQRk35BRqJfYgmq3XlzVpgLhIggx9ryAcRTAPrYaYuzSzFrBd_ozupJgDulWDnhN3lDiiO3dng7W9Ny3NPz-VmRSHVmfbq9kMc6k5oes"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Claire de Saint-Ange</span>
+<span class="font-body-sm text-body-sm text-outline">claire.desaintange@sorbonne-univ.fr</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-6">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Assiduité</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">98% (4.2h/sem)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Score DALF</span>
+<div class="flex items-center gap-1">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">87</span>
+<span class="font-label-sm text-label-sm text-outline">/100</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Diagnostic IA</span>
+<span class="font-label-sm text-label-sm px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-semibold w-max">
+                  Prêt C1 • 4 enregistrements validés
+                </span>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">graphic_eq</span>
+</button>
+</div>
+</div>
+<!-- Learner 2 -->
+<div class="p-space-md px-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md hover:bg-surface-container-low/50 transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Portrait authentique d'un jeune homme étudiant concentré portant des écouteurs studio d'enregistrement dans une salle d'étude moderne" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWRMcHI_jEi9JUuFGj6Xf4U2GlICpBTSaKVlDuBJLTvHEnEMtodxcEW4mALhW-b4-4ZIgwtXCpwxGZJOzR5V18n1_UjuXFAlzVqnGSU_0ilrusP3H4kw6YjFmBiMl-ooz6DJyqv_RvkP4VrIxUje2z3ZNcTklWENrKGYYsJWzn7eDKo5F9nNNn04ki61awshoM0-18wLWAV-O28WEnAbgHGT-U5XetKKpwhVV5t94"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Thomas Leroy</span>
+<span class="font-body-sm text-body-sm text-outline">t.leroy.master@gmail.com</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-6">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Assiduité</span>
+<span class="font-label-md text-label-md font-semibold text-error">64% (1.1h/sem)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Score DALF</span>
+<div class="flex items-center gap-1">
+<span class="font-headline-sm text-headline-sm font-bold text-error">72</span>
+<span class="font-label-sm text-label-sm text-outline">/100</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Diagnostic IA</span>
+<span class="font-label-sm text-label-sm px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container font-semibold w-max flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">warning</span> Risque phonétique
+                </span>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-error transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">announcement</span>
+</button>
+</div>
+</div>
+<!-- Learner 3 -->
+<div class="p-space-md px-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md hover:bg-surface-container-low/50 transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Portrait professionnel d'une étudiante d'origine asiatique souriante dans un espace de coworking lumineux avec fond épuré" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCvUO3wYaw-uD1nxiQjd25vvbjYkalti3LJGtw7GBsTaQuRUiBeT5NH8JZlwRQaoHR_HVX6VHYc9LZxmn3jXU-XNow7h4tWa29Ji6S2nAnS46iqZaVXCQLwB-kQOl0eNC_btvqc5Pya6Odfnte0atH5qRiy0sCQbgsUVi9PQ3XtmJS8WNX_KC3V8JF8CnSQfKRQgXpe1rCEGyKXcm9bvMaHN969l-RHqj4BjzmlHA"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Mei Ling Chen</span>
+<span class="font-body-sm text-body-sm text-outline">meiling.chen@sorbonne-fle.fr</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-6">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Assiduité</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">91% (2.9h/sem)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Score DALF</span>
+<div class="flex items-center gap-1">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">78</span>
+<span class="font-label-sm text-label-sm text-outline">/100</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Diagnostic IA</span>
+<span class="font-label-sm text-label-sm px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-semibold w-max">
+                  En progrès sur connecteurs
+                </span>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">graphic_eq</span>
+</button>
+</div>
+</div>
+<!-- Learner 4 -->
+<div class="p-space-md px-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md hover:bg-surface-container-low/50 transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Portrait contemporain d'un jeune homme élégant avec barbe soignée dans une ambiance de campus académique contemporain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVGZi3xSl55Boyxo95OJN6VM-BDcXntv1VWrkfhgitNY5ywMXi2HAnDJnBPW9Svbm6RqYHjwQZfmhnWU6cSuga8pulEzbqHOV9zXqBib2jb7leUgzLYu4SxCg1dEnk3MIaUXMFEcrgdIiXaPzFiPcN-UglxEM9ki4b4C2hsq2XdK1F-mqSxfDlHATvKcyhKQWvmq2R7-Qy7Ne4ay34pUVycFOdDjLEWrOPPKfYdKI"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Karim Benali</span>
+<span class="font-body-sm text-body-sm text-outline">karim.benali@outlook.fr</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-6">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Assiduité</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">94% (3.1h/sem)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Score DALF</span>
+<div class="flex items-center gap-1">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">82</span>
+<span class="font-label-sm text-label-sm text-outline">/100</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Diagnostic IA</span>
+<span class="font-label-sm text-label-sm px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface font-semibold w-max">
+                  Régulier • Prêt oral
+                </span>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">graphic_eq</span>
+</button>
+</div>
+</div>
+</div>
+<div class="p-space-md bg-surface-container-low flex items-center justify-between px-space-lg">
+<span class="font-body-sm text-body-sm text-outline">Affichage de 4 sur 18 apprenants inscrits</span>
+<button class="font-label-md text-label-md text-primary hover:underline flex items-center gap-1" type="button">
+<span>Voir toute la promotion</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right 1 Col: Performance Distribution & Assignment Console -->
+<div class="flex flex-col gap-space-md">
+<!-- Radar / Rubric Performance Card -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex flex-col">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Critères CECRL C1</h4>
+<span class="font-body-sm text-body-sm text-outline">Moyennes de la cohorte</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-primary text-on-primary">Barème /25</span>
+</div>
+<!-- Inline SVG Visualization: Performance Radar / Bars -->
+<div class="flex flex-col gap-space-sm my-2">
+<!-- Critère 1 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface">Aisance &amp; Débit Spontané</span>
+<span class="font-bold text-primary">4.6 / 5.0</span>
+</div>
+<div class="w-full bg-surface-container-low rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<!-- Critère 2 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface">Correction Phonologique &amp; Prosodie</span>
+<span class="font-bold text-error">3.6 / 5.0</span>
+</div>
+<div class="w-full bg-surface-container-low rounded-full h-2">
+<div class="bg-error h-2 rounded-full" style="width: 72%"></div>
+</div>
+</div>
+<!-- Critère 3 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface">Étendue &amp; Richesse Lexicale</span>
+<span class="font-bold text-primary">4.4 / 5.0</span>
+</div>
+<div class="w-full bg-surface-container-low rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<!-- Critère 4 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface">Cohérence &amp; Articulation Logique</span>
+<span class="font-bold text-primary">4.2 / 5.0</span>
+</div>
+<div class="w-full bg-surface-container-low rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 84%"></div>
+</div>
+</div>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg mt-space-md flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">tips_and_updates</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Recommandation IA : Assignez une session de répétition prosodique sur les liaisons complexes et le rythme accentuel français.
+          </p>
+</div>
+</div>
+<!-- Quick Action Card : Sujet en cours -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Sujet d'Épreuve Actif</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant">Échéance : 4 jours</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Monologue suivi : « L'impact de l'IA générative sur les métiers intellectuels »</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Dossier de 2 documents source (Presse &amp; Rapport UNESCO). Préparation 30 min • Exposé oral 10 min.</p>
+</div>
+<div class="mt-space-lg pt-space-sm flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">mic</span>
+<span class="font-label-md text-label-md text-on-surface">14/18 enregistrements remis</span>
+</div>
+<button class="font-label-md text-label-md text-primary hover:underline font-semibold" type="button">
+            Évaluer la pile →
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4 (Suite) : Tiroir Latéral d'Action Rapide / Slide-over Drawer -->
+<div class="fixed top-0 right-0 w-full max-w-md h-full bg-surface-container-lowest shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between overflow-y-auto" id="slideout-panel">
+<div class="p-space-lg flex flex-col gap-space-md">
+<!-- Drawer Header -->
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Configuration Rapide</h3>
+<span class="font-body-sm text-body-sm text-outline">Gestion directe de la cohorte</span>
+</div>
+<button class="w-9 h-9 rounded-lg bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-outline hover:text-on-surface transition-colors" onclick="toggleSlidePanel()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Action 1: Ajouter un apprenant -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">person_add</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Inscrire un nouvel apprenant</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">L'apprenant recevra ses identifiants studio et la grille d'auto-évaluation CECRL par email.</p>
+<div class="flex flex-col gap-2 mt-2">
+<label class="font-label-sm text-label-sm text-outline">Nom &amp; Prénom</label>
+<input class="w-full bg-surface-container-lowest text-on-surface px-3 py-2 rounded-lg text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40" placeholder="Ex: Lucas Bernard" type="text"/>
+<label class="font-label-sm text-label-sm text-outline mt-1">Adresse Email Institutionnelle</label>
+<input class="w-full bg-surface-container-lowest text-on-surface px-3 py-2 rounded-lg text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40" placeholder="l.bernard@universite.fr" type="email"/>
+<button class="mt-2 w-full py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-surface-tint shadow-sm transition-all flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span>Envoyer l'invitation d'accès</span>
+</button>
+</div>
+</div>
+<!-- Action 2: Assigner un nouveau sujet d'examen -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">library_books</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Assigner un Sujet d'Examen</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sélectionnez une épreuve certifiée de la banque ORALIS.</p>
+<div class="flex flex-col gap-2 mt-2">
+<label class="font-label-sm text-label-sm text-outline">Sélection de l'épreuve</label>
+<select class="w-full bg-surface-container-lowest text-on-surface px-3 py-2 rounded-lg text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40">
+<option>DALF C1 — Épreuve 2 : Débat argumenté (Société &amp; Écologie)</option>
+<option>DALF C1 — Épreuve 1 : Synthèse &amp; Exposé scientifique</option>
+<option>TCF Canada — Tâche 3 : Expression de point de vue</option>
+</select>
+<label class="font-label-sm text-label-sm text-outline mt-1">Date limite de soumission orale</label>
+<input class="w-full bg-surface-container-lowest text-on-surface px-3 py-2 rounded-lg text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40" type="date" value="2025-05-25"/>
+<div class="flex items-center gap-2 mt-1">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary/40" id="ai-pre-feedback" type="checkbox"/>
+<label class="font-label-sm text-label-sm text-on-surface" for="ai-pre-feedback">Activer le pré-diagnostic phonétique IA instantané</label>
+</div>
+<button class="mt-2 w-full py-2.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container-high shadow-sm transition-all flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]">publish</span>
+<span>Publier aux 18 apprenants</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Drawer Footer -->
+<div class="p-space-md bg-surface-container-low flex items-center justify-between">
+<button class="px-space-md py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:text-on-surface" onclick="toggleSlidePanel()" type="button">
+        Fermer
+      </button>
+<span class="font-body-sm text-body-sm text-outline">ORALIS Master Sync v3.4</span>
+</div>
+</div>
+</div></main></div></body></html>

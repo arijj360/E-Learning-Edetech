@@ -1,0 +1,57 @@
+.oralis-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  user-select: none;
+}
+
+.brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background-color: var(--primary);
+  color: var(--on-primary);
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(77, 65, 223, 0.3);
+}
+
+.oralis-brand--light .brand-icon {
+  background-color: var(--primary);
+  box-shadow: 0 2px 12px rgba(77, 65, 223, 0.5);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--on-surface);
+  line-height: 1;
+}
+
+.brand-text-sm { font-size: 16px; }
+.brand-text-md { font-size: 20px; }
+.brand-text-lg { font-size: 24px; }
+
+.oralis-brand--light .brand-name {
+  color: var(--surface);
+}
+
+.brand-sub {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary-fixed-dim);
+  margin-top: 1px;
+}
+
+.oralis-brand--light .brand-sub {
+  color: var(--primary-fixed);
+}
