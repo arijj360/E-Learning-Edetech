@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Annotation profile for exam-content-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -9,16 +10,24 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.48/lombok-1.18.48.jar" />
         </processorPath>
-        <module name="exam-content-service" />
       </profile>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="certification-service" />
-        <module name="record-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="analysis-service" target="17" />
+      <module name="backend" target="17" />
+      <module name="certification-service" target="17" />
+      <module name="EurekaServer" target="17" />
+      <module name="exam-content-service" target="17" />
+      <module name="feedback-service" target="17" />
+      <module name="record-service" target="17" />
+      <module name="simulation-service" target="17" />
+      <module name="user-progress-service" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
