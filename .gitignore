@@ -1,7 +1,24 @@
+# IntelliJ IDEA
+.idea/
+
+# Maven
+**/target/
+
+# Node
 node_modules/
-.expo/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Build files
 dist/
 build/
-.gradle/
-.idea/
-*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
